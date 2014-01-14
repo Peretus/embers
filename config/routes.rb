@@ -1,4 +1,6 @@
 Remory::Application.routes.draw do
+  get "pages/about"
+  get "pages/welcome"
   # get "users/index"
   # get "users/show"
   # get "users/edit"
