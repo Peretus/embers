@@ -1,4 +1,13 @@
 Remory::Application.routes.draw do
+  # get "users/index"
+  # get "users/show"
+  # get "users/edit"
+
+  resources :users
+  root "paths#index"
+  
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
