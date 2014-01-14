@@ -12,7 +12,20 @@ Remory::Application.routes.draw do
   # get "users/show"
   # get "users/edit"
 
-  resources :users
+  resources :users do
+    resources :paths, only: [:index, :show] do
+      resources :decks, only: [:show] do
+
+      end
+    end
+  end
+
+  resources :users do
+    resources :decks, only: [:edit, :new, :create]
+  end
+
+  get "/users/:user_id/decks/:id" => "decks#show_admin", as: "user_deck_admin_show"
+
   root "pages#welcome"
   
 
