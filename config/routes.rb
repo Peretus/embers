@@ -1,4 +1,5 @@
 Remory::Application.routes.draw do
+  devise_for :users
   get "facts/index"
   get "facts/show"
   get "decks/index"
