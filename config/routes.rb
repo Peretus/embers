@@ -1,4 +1,8 @@
 Remory::Application.routes.draw do
+  get "facts/index"
+  get "facts/show"
+  get "decks/index"
+  get "decks/show"
   get "enrollments/show"
   get "enrollments/index"
   get "pages/about"
