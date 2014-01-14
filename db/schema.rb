@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114201253) do
+ActiveRecord::Schema.define(version: 20140114204237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cards", force: true do |t|
+    t.string   "format"
+    t.string   "difficulty"
+    t.string   "prompt"
+    t.string   "correct_answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "decks", force: true do |t|
+    t.float    "stage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "enrollments", force: true do |t|
     t.integer  "user_id"
@@ -26,6 +41,13 @@ ActiveRecord::Schema.define(version: 20140114201253) do
   add_index "enrollments", ["path_id"], name: "index_enrollments_on_path_id", using: :btree
   add_index "enrollments", ["user_id"], name: "index_enrollments_on_user_id", using: :btree
 
+  create_table "facts", force: true do |t|
+    t.string   "term"
+    t.text     "definition"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pages", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -33,6 +55,12 @@ ActiveRecord::Schema.define(version: 20140114201253) do
 
   create_table "paths", force: true do |t|
     t.string   "subject"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
