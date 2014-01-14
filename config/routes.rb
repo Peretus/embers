@@ -1,4 +1,6 @@
 Remory::Application.routes.draw do
+  get "enrollments/show"
+  get "enrollments/index"
   get "pages/about"
   get "pages/welcome"
   # get "users/index"
@@ -6,7 +8,7 @@ Remory::Application.routes.draw do
   # get "users/edit"
 
   resources :users
-  root "paths#index"
+  root "pages#welcome"
   
 
 
