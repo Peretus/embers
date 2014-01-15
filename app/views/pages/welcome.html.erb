@@ -1,2 +1,91 @@
 <h1>Pages#welcome</h1>
 <p>Find me in app/views/pages/welcome.html.erb</p>
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+
+  <div class="row">
+    
+    <div id="card-container"  class="small-6 med-6 large-6 columns">
+      <div id="card-header"> How do you generate a rails model for users?</div>
+      <div id="answer-canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+      </div>
+      <div id="answer-choices">
+        <p id="answer-string" class="draggable">rails g controller User</p>
+      </div>
+    </div>
+  </div>
+
+
+
+<script type="text/javascript">
+
+
+window.addEventListener('DOMContentLoaded', splitWords, false);
+  
+  function splitWords() {
+
+    var elems = document.querySelectorAll('.draggable'),
+        text,
+        textNode,
+        words,
+        elem;
+
+    // iterate through all .draggable elements
+    for (var i = 0, l = elems.length; i < l; i++) {
+
+        elem = elems[i]; 
+        textNode = elem.childNodes[0];
+        text = textNode.nodeValue;
+
+        // remove current text node
+        elem.removeChild(textNode);      
+        words = text.split(' ');
+
+      // iterate through words
+      for (var k = 0, ll = words.length; k < ll; k++) {
+         // create node for all words
+         textNode = document.createElement('span');
+         textNode.id = 'word_' + i + k;
+         // allow dragging for words
+         textNode.draggable = true;
+         textNode.ondragstart = drag;
+         textNode.appendChild(document.createTextNode(words[k] + ' '));
+         elem.appendChild(textNode)
+      }
+    }
+  }
+  
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+  console.log('targetid: ' + ev.target.id);
+}
+
+function drop(ev)
+{
+ev.preventDefault();
+var data=ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+

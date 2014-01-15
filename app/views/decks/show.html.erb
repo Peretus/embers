@@ -1,2 +1,59 @@
 <h1>Decks#show</h1>
 <p>Find me in app/views/decks/show.html.erb</p>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script type="text/javascript" src="http://www.pureexample.com/js/lib/jquery.ui.touch-punch.min.js"></script>
+
+
+
+  <div class="row">
+    
+    <div id="card-container"  class="small-6 med-6 large-6 columns">
+      <div id="card-header"> How do you generate a rails model for users?</div>
+      <div id="answer-canvas">
+        
+      </div>
+      <div id="answer-choices">
+        <!-- other divs for each choice go here -->
+        <div class="answer-block" id="piece1">rails</div>
+        <div class="answer-block" id="piece2">g</div>
+        <div class="answer-block" id="piece3">model</div>
+        <div class="answer-block" id="piece4">User</div>
+      </div>
+    
+
+    </div>
+
+  </div>
+
+
+
+<script type="text/javascript">
+  $(function () {
+          $(".answer-block").draggable({
+                  snap: "#answer-canvas",
+                  snapMode: "inner"
+          });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

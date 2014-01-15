@@ -1,3 +1,26 @@
 // Place all the styles related to the Decks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#card-header{
+  font-size: 3em;
+  text-align: center;
+}
+
+#answer-canvas{
+  height: 200px;
+  width: 400px;
+  border: 1px solid gray;
+}
+
+
+
+.answer-block{
+  height: 40px;
+  padding: 10px 10px 10px 10px;
+  display: inline-block;
+  background-color: green;
+  color: white;
+
+}
