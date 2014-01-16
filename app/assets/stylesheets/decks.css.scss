@@ -14,13 +14,34 @@
   border: 1px solid gray;
 }
 
+#answer-canvas, #answer-string {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left;
+  color: blue;
+}
 
+#answer-canvas > div {
+  float: left;
+  margin: 5px;
+}
 
-.answer-block{
-  height: 40px;
-  padding: 10px 10px 10px 10px;
-  display: inline-block;
-  background-color: green;
-  color: white;
+#answer-string > div {
+  float: left;
+  margin: 5;
+  padding: 5;
+  width: 400px;
+}
 
+#answer-choices {
+  height: 200px;
+  width: 400px;
+  border: 1px solid red;
+  float: left;
+}
+
+.answer-choices {
+  margin: 2px;
+  padding: 2px;
 }

@@ -9,10 +9,10 @@
     
     <div id="card-container"  class="small-6 med-6 large-6 columns">
       <div id="card-header"> How do you generate a rails model for users?</div>
-      <div id="answer-canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div id="answer-canvas" class="connectedSortable">
       </div>
       <div id="answer-choices">
-        <p id="answer-string" class="draggable">rails g controller User</p>
+        <div id="answer-string" class="draggable connectedSortable">rails g controller User</div>
       </div>
     </div>
   </div>
@@ -46,35 +46,45 @@ window.addEventListener('DOMContentLoaded', splitWords, false);
       // iterate through words
       for (var k = 0, ll = words.length; k < ll; k++) {
          // create node for all words
-         textNode = document.createElement('span');
+         textNode = document.createElement('div');
          textNode.id = 'word_' + i + k;
+         textNode.className = "answer-choices"
          // allow dragging for words
-         textNode.draggable = true;
-         textNode.ondragstart = drag;
+         // textNode.draggable = true;
+         // textNode.ondragstart = drag;
          textNode.appendChild(document.createTextNode(words[k] + ' '));
          elem.appendChild(textNode)
       }
     }
   }
   
-function allowDrop(ev)
-{
-ev.preventDefault();
-}
+// function allowDrop(ev)
+// {
+// ev.preventDefault();
+// }
 
-function drag(ev)
-{
-ev.dataTransfer.setData("Text",ev.target.id);
-  console.log('targetid: ' + ev.target.id);
-}
+// function drag(ev)
+// {
+// ev.dataTransfer.setData("Text",ev.target.id);
+//   console.log('targetid: ' + ev.target.id);
+// }
 
-function drop(ev)
-{
-ev.preventDefault();
-var data=ev.dataTransfer.getData("Text");
-ev.target.appendChild(document.getElementById(data));
-}
+// function drop(ev)
+// {
+// ev.preventDefault();
+// var data=ev.dataTransfer.getData("Text");
+// ev.target.appendChild(document.getElementById(data));
+// }
 
+
+</script>
+
+<script>
+  $(function() {
+    $( "#answer-canvas, #answer-string" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  });
 </script>
 
 
