@@ -9,10 +9,14 @@
     
     <div id="card-container"  class="small-6 med-6 large-6 columns">
       <div id="card-header"> How do you generate a rails model for users?</div>
-      <div id="answer-canvas" class="connectedSortable">
+      <div id="answer-canvas" class=" ">
       </div>
-      <div id="answer-choices">
-        <div id="answer-string" class="draggable connectedSortable">rails g controller User</div>
+      <div id="answer-basket">
+        <!-- <div id="answer-string" class=" "> -->
+          <% @words.each do |word| %>
+            <div class="answer-object"><%= word %></div>
+          <% end %>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -20,17 +24,30 @@
 
 
 <script type="text/javascript">
-  
+ 
+
+
+$("#answer-canvas").on('click', ".answer-object",
+  function(){
+    $("#answer-basket").append(this);
+    
+  }
+)
+
+
+$("#answer-basket").on('click', ".answer-object",
+  function(){
+    $("#answer-canvas").append(this);
+
+  }
+)
+
+
 </script>
 
-<script>
-  $(function() {
-    $( "#answer-canvas, #answer-string" ).sortable({
-      connectWith: ".connectedSortable",
-      revert: 100, 
-    }).disableSelection();
-  });
-</script>
+
+
+
 
 
 

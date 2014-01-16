@@ -1,9 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Deck.create!([
+  {stage: 1.2, path_id: 1, user_id: nil, title: "Enumberable"}
+])
+Fact.create!([
+  {term: "Find the length of an an array called 'numbers'", definition: "numbers . length", deck_id: 1}
+])
+Path.create!([
+  {subject: "Ruby"}
+])
 
-# User.create([{name: "Casey", password: "password"}])
+
+Deck.create!([
+  {stage: 1.2, path_id: 1, user_id: nil, title: "Strings"}
+])
+Fact.create!([
+  {term: "What is the method to capitalize the word 'kitten'?", definition: "'kitten' . capitalize", deck_id: 2}
+])
+Path.create!([
+  {subject: "Javascript"}
+])
+

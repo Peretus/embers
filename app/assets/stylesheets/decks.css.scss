@@ -14,26 +14,32 @@
   border: 1px solid gray;
 }
 
-#answer-canvas, #answer-string {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  color: blue;
-}
 
 #answer-canvas > div {
   float: left;
   margin: 2px;
   padding: 2px;
+  min-width: 20px;
+  background-color: gray;
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
 }
 
-#answer-string > div {
+#answer-basket > div {
   float: left;
   margin: 2px;
   padding: 2px;
+  min-width: 20px;
+  background-color: gray;
+  text-align: center;
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
 }
 
-#answer-choices {
+#answer-basket {
   height: 200px;
   width: 400px;
   border: 1px solid red;
@@ -43,10 +49,4 @@
 .answer-choices {
   margin: 2px;
   padding: 2px;
-}
-
-
-#answer-string{
-  height:200px;
-  width: 400px;
 }
