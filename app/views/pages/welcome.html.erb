@@ -18,6 +18,7 @@
           <% end %>
         <!-- </div> -->
       </div>
+      <input id="submit" type="submit"></input>
     </div>
   </div>
 
@@ -25,25 +26,47 @@
 
 <script type="text/javascript">
  
+ var attemptArray = [];
+
 
 
 $("#answer-canvas").on('click', ".answer-object",
   function(){
+    var $this = $(this);
     $("#answer-basket").append(this);
-    
+    var delete_index = attemptArray.indexOf($this.text());
+    attemptArray.splice(delete_index, 1);
   }
 )
 
 
 $("#answer-basket").on('click', ".answer-object",
   function(){
+    var $this = $(this);
     $("#answer-canvas").append(this);
-
+    attemptArray.push($this.text());
   }
 )
 
 
+
+// $("#submit").on("click", function(e){
+//   e.preventDefault();
+//   $.post({
+//     data: attemptArray,
+//     url:"pages/welcome"
+//   });
+// });
+
+
+
+
+
 </script>
+
+
+<%= @fact.definition %>
+<%= @words %>
 
 
 
