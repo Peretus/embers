@@ -1,5 +1,7 @@
 class AddPathIdToDeck < ActiveRecord::Migration
   def change
-    add_column :decks, :path_id, :integer
+    change_table :decks do |t|
+      t.references :path
+    end
   end
 end

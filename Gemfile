@@ -38,6 +38,9 @@ gem "foundation-rails"
 
 gem 'rails_12factor'
 
+gem 'seed_dump'
+
+
 
 
 group :doc do

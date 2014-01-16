@@ -1,5 +1,7 @@
 class AddDeckIdToFact < ActiveRecord::Migration
   def change
-    add_column :facts, :deck_id, :integer
+    change_table :facts do |t|
+      t.references :deck
+    end
   end
 end

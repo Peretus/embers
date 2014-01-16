@@ -1,5 +1,7 @@
 class AddFactIdToCard < ActiveRecord::Migration
   def change
-    add_column :cards, :fact_id, :integer
+    change_table :cards do |t|
+      t.references :fact
+    end
   end
 end
