@@ -82,7 +82,8 @@ window.addEventListener('DOMContentLoaded', splitWords, false);
 <script>
   $(function() {
     $( "#answer-canvas, #answer-string" ).sortable({
-      connectWith: ".connectedSortable"
+      connectWith: ".connectedSortable",
+      revert: 100, 
     }).disableSelection();
   });
 </script>
