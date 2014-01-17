@@ -17,6 +17,7 @@
             <div class="answer-object"><%= word %></div>
           <% end %>
       </div>
+      <input id="submit" type="submit"></input>
     </div>
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
@@ -25,25 +26,46 @@
 
 <script type="text/javascript">
  
+ var attemptArray = [];
+
 
 
 $("#answer-canvas").on('click', ".answer-object",
   function(){
+    var $this = $(this);
     $("#answer-basket").append(this);
-    
+    var delete_index = attemptArray.indexOf($this.text());
+    attemptArray.splice(delete_index, 1);
   }
 )
 
 
 $("#answer-basket").on('click', ".answer-object",
   function(){
+    var $this = $(this);
     $("#answer-canvas").append(this);
-
+    attemptArray.push($this.text());
+    check_answer(attemptArray);
   }
 )
 
+var check_answer = function(attemptArray) {
+  var joined_array = attemptArray.join("");
+  // var normalized_response = joined_array.replace(" ", "");
+  
+  console.log(joined_array);
+
+  return joined_array == <%= @fact.remove_spaces %>;
+}
+
+
+
 
 </script>
+
+
+<%= @fact.definition %>
+<%= @words %>
 
 
 
