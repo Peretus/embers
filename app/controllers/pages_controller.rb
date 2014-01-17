@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def welcome
     @fact = Path.first.decks.first.facts.first
-    @words = @fact.split_to_answer_objects
+    @words = @fact.split_to_answer_objects.shuffle
   
   end
 end

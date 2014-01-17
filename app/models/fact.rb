@@ -9,7 +9,7 @@ class Fact < ActiveRecord::Base
     spaced_word.split(' ')
   end
 
-  def shuffled_answer_objects
+  def shuffle_answer_objects
   end
 
   def correct_answer? (answer, response)
