@@ -20,6 +20,10 @@ class Fact < ActiveRecord::Base
     normalized_response == answer
   end
 
+  def remove_spaces
+    self.definition.gsub(" ", "")
+  end
+
 
 
 

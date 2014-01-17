@@ -45,19 +45,18 @@ $("#answer-basket").on('click', ".answer-object",
     var $this = $(this);
     $("#answer-canvas").append(this);
     attemptArray.push($this.text());
+    check_answer(attemptArray);
   }
 )
 
+var check_answer = function(attemptArray) {
+  var joined_array = attemptArray.join("");
+  // var normalized_response = joined_array.replace(" ", "");
+  
+  console.log(joined_array);
 
-
-// $("#submit").on("click", function(e){
-//   e.preventDefault();
-//   $.post({
-//     data: attemptArray,
-//     url:"pages/welcome"
-//   });
-// });
-
+  return joined_array == <%= @fact.remove_spaces %>;
+}
 
 
 
