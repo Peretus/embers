@@ -1,26 +1,26 @@
+<!-- 
 <h1>Pages#welcome</h1>
 <p>Find me in app/views/pages/welcome.html.erb</p>
-
+ -->
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
-
+<div id="full-width-background">
   <div class="row">
-    
-    <div id="card-container"  class="small-6 med-6 large-6 columns">
-      <div id="card-header"> How do you generate a rails model for users?</div>
+    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
+    <div id="card-container" class="small-10 med-8 large-8 columns">
+      <h2 id="card-header"> How do you generate a rails model for users?</h2>
       <div id="answer-canvas" class=" ">
       </div>
       <div id="answer-basket">
-        <!-- <div id="answer-string" class=" "> -->
           <% @words.each do |word| %>
             <div class="answer-object"><%= word %></div>
           <% end %>
-        <!-- </div> -->
       </div>
     </div>
+    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
-
+</div>
 
 
 <script type="text/javascript">
