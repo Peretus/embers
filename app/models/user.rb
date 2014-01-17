@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   has_many :decks
   has_many :enrollments
   has_many :paths, through: :enrollments
+  has_many :known_facts
+  has_many :facts, through: :known_facts
 end

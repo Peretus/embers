@@ -1,6 +1,8 @@
 class Fact < ActiveRecord::Base
   belongs_to :deck
   has_many :cards
+  has_many :known_facts
+  has_many :users, through: :known_facts
 
 
 
@@ -10,8 +12,6 @@ class Fact < ActiveRecord::Base
     new_spaced_word.split(' ')
   end
 
-  def shuffle_answer_objects
-  end
 
   def correct_answer? (answer, response)
       

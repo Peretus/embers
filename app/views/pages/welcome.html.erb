@@ -9,13 +9,11 @@
   <div class="row">
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
     <div id="card-container" class="small-10 med-8 large-8 columns">
-      <h2 id="card-header"> <%= @fact.term %> </h2>
+      <h2 id="card-header"></h2>
       <div id="answer-canvas" class=" ">
       </div>
       <div id="answer-basket">
-          <% @words.each do |word| %>
-            <div class="answer-object"><%= word %></div>
-          <% end %>
+         
       </div>
       <input id="submit" type="submit"></input>
     </div>
@@ -27,6 +25,8 @@
 <script type="text/javascript">
  
  var attemptArray = [];
+ var sampleFacts = <%=raw @sample_facts %>;
+ var card_counter = 0;
 
 
 
@@ -47,41 +47,69 @@ $("#answer-basket").on('click', ".answer-object",
     attemptArray.push($this.text());
     console.log(check_answer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
-    if(check_answer(attemptArray)) {
+    if(check_answer(attemptArray) && card_counter < sampleFacts.length) {
       $(".answer-object").css("background-color", "#c2e2a0");
       $.ajax({
         type: "POST",
-        data: true,
+        data: "",
         url: "",
-        success: function(){
+        success: setTimeout(function(){
+          loadNextCard();
+          getCard();
           
-          setTimeout(function(){
-            loadNextCard();
-          }, 2000);
-
-        }
+          }, 2000)
       }); 
     }
   }
 )
 
+var loadNextCard = function() {
+  $("#answer-basket").empty();
+  $("#answer-canvas").empty();
+  attemptArray = [];
+
+};
+
+var getCard = function() {
+  aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
+  
+  // shuffled_sample_definition = shuffle(aCardDefinition);
+  // shuffled_sample_definition = shuffle(sampleFacts[card_counter].definition);
+
+  for(i = 0; i < aCardDefinition.length; i++){
+
+    var $div = $('<div class="answer-object">'+aCardDefinition[i]+'</div>')
+    var header = sampleFacts[card_counter].term;
+    $("#answer-basket").append($div);
+    $("#card-header").text(header);
+  };
+  card_counter = card_counter+ 1;
+}
+
 var check_answer = function(attemptArray) {
   var joined_array = attemptArray.join("");
   // var normalized_response = joined_array.replace(" ", "");
-  
-  console.log("Joined array: "+joined_array);
-  console.log("Fact: "+"<%= @fact.remove_spaces.html_safe %>");
-  return joined_array == "<%= @fact.remove_spaces.html_safe %>";
+  var answer = (sampleFacts[card_counter-1].definition);
+  console.log("joined_array: "+joined_array);
+  console.log("answer: "+answer.join(""));
+  return joined_array == answer.join("");
+ 
 }
 
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
-
-
+getCard();
 </script>
 
 
-<%= @fact.definition %>
-<%= @words %>
 
 
 
