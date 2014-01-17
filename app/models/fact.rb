@@ -6,7 +6,8 @@ class Fact < ActiveRecord::Base
 
   def split_to_answer_objects 
     spaced_word = self.definition.gsub('.', " . ")
-    spaced_word.split(' ')
+    new_spaced_word = spaced_word.gsub("(", " (")
+    new_spaced_word.split(' ')
   end
 
   def shuffle_answer_objects

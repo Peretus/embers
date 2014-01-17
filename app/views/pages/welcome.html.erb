@@ -45,7 +45,23 @@ $("#answer-basket").on('click', ".answer-object",
     var $this = $(this);
     $("#answer-canvas").append(this);
     attemptArray.push($this.text());
-    check_answer(attemptArray);
+    console.log(check_answer(attemptArray));
+    // var answer_correct = check_answer(attemptArray);
+    if(check_answer(attemptArray)) {
+      $(".answer-object").css("background-color", "#c2e2a0");
+      $.ajax({
+        type: "POST",
+        data: true,
+        url: "",
+        success: function(){
+          
+          setTimeout(function(){
+            loadNextCard();
+          }, 2000);
+
+        }
+      }); 
+    }
   }
 )
 
@@ -53,9 +69,9 @@ var check_answer = function(attemptArray) {
   var joined_array = attemptArray.join("");
   // var normalized_response = joined_array.replace(" ", "");
   
-  console.log(joined_array);
-
-  return joined_array == <%= @fact.remove_spaces %>;
+  console.log("Joined array: "+joined_array);
+  console.log("Fact: "+"<%= @fact.remove_spaces.html_safe %>");
+  return joined_array == "<%= @fact.remove_spaces.html_safe %>";
 }
 
 
