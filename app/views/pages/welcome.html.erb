@@ -73,9 +73,6 @@ var loadNextCard = function() {
 var getCard = function() {
   aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
   
-  // shuffled_sample_definition = shuffle(aCardDefinition);
-  // shuffled_sample_definition = shuffle(sampleFacts[card_counter].definition);
-
   for(i = 0; i < aCardDefinition.length; i++){
 
     var $div = $('<div class="answer-object">'+aCardDefinition[i]+'</div>')
@@ -88,7 +85,6 @@ var getCard = function() {
 
 var check_answer = function(attemptArray) {
   var joined_array = attemptArray.join("");
-  // var normalized_response = joined_array.replace(" ", "");
   var answer = (sampleFacts[card_counter-1].definition);
   console.log("joined_array: "+joined_array);
   console.log("answer: "+answer.join(""));
