@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
+//= require riot
+
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

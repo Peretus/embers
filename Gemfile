@@ -40,6 +40,8 @@ gem 'rails_12factor'
 
 gem 'seed_dump'
 
+gem 'riotjs-rails'
+
 
 
 
