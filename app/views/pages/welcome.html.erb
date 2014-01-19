@@ -190,7 +190,25 @@ var checkPuzzleAnswer = function(attemptArray) {
 
 var checkAndPostFreeResponseAnswer = function(){
   console.log("CHecking answer....");
-  setTimeout(showRandomCard, 1000);
+  var response = $("#free-text-field").val();
+  var answer = (sampleFacts[card_counter].definition.join(""));
+  console.log("answer: "+answer);
+  console.log("response: "+response);
+  if(response == answer){
+    $("#free-text-field").css("background-color", "green");
+  } else {
+    $("#free-text-field").css("background-color", "red");
+  }
+  $.ajax({
+    type: "POST",
+    data: (response == answer),
+    url: "",
+    success: setTimeout(function(){
+      clearOldCard();
+      card_counter = card_counter+ 1;
+      showRandomCard();
+      }, 2000)
+  }); 
 };
 
 function shuffle(array) {
