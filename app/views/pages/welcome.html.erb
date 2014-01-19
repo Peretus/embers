@@ -45,7 +45,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     attemptArray.push($this.text());
     console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
-    if(checkPuzzleAnswer(attemptArray) && card_counter < sampleFacts.length) {
+    if(checkPuzzleAnswer(attemptArray)) {
       $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
       $.ajax({
         type: "POST",
@@ -93,7 +93,7 @@ $("#card-container").on('click', ".mc-decoy",
           clearOldCard();
           showRandomCard();
           
-          }, 1000)
+          }, 3000)
       });
   }
 )
@@ -191,7 +191,7 @@ var checkPuzzleAnswer = function(attemptArray) {
 var checkAndPostFreeResponseAnswer = function(){
   console.log("CHecking answer....");
   var response = $("#free-text-field").val();
-  var answer = (sampleFacts[card_counter].definition.join(""));
+  var answer = (sampleFacts[card_counter].definition.join("").replace('"', "'"));
   console.log("answer: "+answer);
   console.log("response: "+response);
   if(response == answer){
@@ -222,10 +222,14 @@ function shuffle(array) {
 }
 
 function showRandomCard(){
-  var cardTypes =[puzzle, free, mc];
-  var index = Math.floor(Math.random()*3);
-  clearOldCard();
-  cardTypes[index]();
+  if(card_counter < sampleFacts.length) {
+    var cardTypes =[puzzle, free, mc];
+    var index = Math.floor(Math.random()*3);
+    clearOldCard();
+    cardTypes[index]();
+  } else {
+    alert("This was the final qustion");
+  }
 };
 
 showRandomCard();
