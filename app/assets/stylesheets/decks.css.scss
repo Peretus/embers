@@ -13,7 +13,8 @@
   text-align: center;
   color: gray;
   margin: 20px 30px 0 30px;
-  font-family: "Helvetica Neue";
+  font-family: "Open Sans";
+  font-weight: 300;
 }
 
 #answer-canvas{
@@ -34,10 +35,12 @@
   min-width: 20px;
   background-color: #fafafa;
   text-align: center;
-  padding: 7px 10px 7px 10px;
+  padding: 10px 15px 10px 15px;
   border: 1px solid #cdcdcb;
   border-radius: 5px;
   color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
 }
 
 #answer-basket > div {
@@ -46,10 +49,12 @@
   min-width: 20px;
   background-color: #fafafa;
   text-align: center;
-  padding: 7px 10px 7px 10px;
+  padding: 10px 15px 10px 15px;
   border: 1px solid #cdcdcb;
   border-radius: 5px;
   color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
 }
 
 #answer-basket {

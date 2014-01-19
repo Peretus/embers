@@ -48,7 +48,7 @@ $("#answer-basket").on('click', ".answer-object",
     console.log(check_answer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
     if(check_answer(attemptArray) && card_counter < sampleFacts.length) {
-      $(".answer-object").css("background-color", "#c2e2a0");
+      $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
       $.ajax({
         type: "POST",
         data: "",
