@@ -20,7 +20,7 @@
 var attemptArray = [];
 var sampleFacts = <%=raw @sample_facts %>;
 var card_counter = 0;
-var mcTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
+var mcTemplate = '<h2 id="card-header">Yo!&nbsp</h2></div><div id="multiple-choice-basket"><ul></ul></div>'
 
 
 var freeTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
@@ -43,9 +43,9 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     var $this = $(this);
     $("#answer-canvas").append(this);
     attemptArray.push($this.text());
-    console.log(check_answer(attemptArray));
+    console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
-    if(check_answer(attemptArray) && card_counter < sampleFacts.length) {
+    if(checkPuzzleAnswer(attemptArray) && card_counter < sampleFacts.length) {
       $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
       $.ajax({
         type: "POST",
@@ -60,12 +60,47 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     }
   }
 )
+
+// These are handlers for the multiple choice format
+$("#card-container").on('click', ".mc-correct-answer",
+  function(){
+    var $this = $(this);
+    $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
+    $.ajax({
+        type: "POST",
+        data: "",
+        url: "",
+        success: setTimeout(function(){
+          clearOldCard();
+          showRandomCard();
+          
+          }, 2000)
+      }); 
+  }
+
+)
+
+
+$("#card-container").on('click', ".mc-decoy",
+  function(){
+    var $this = $(this);
+    $this.css({"border": "1px solid red", "background-color": "#aaa", "color" : "white"})
+    $.ajax({
+        type: "POST",
+        data: "",
+        url: "",
+        success: setTimeout(function(){
+          clearOldCard();
+          showRandomCard();
+          
+          }, 1000)
+      });
+  }
+)
 // Setup functions for handing each card type
 
 var puzzle = function(){
-  clearOldCard();
   $("#card-container").append(puzzleTemplate);
-  alert("Puzzle Card!");
   aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
   
   for(i = 0; i < aCardDefinition.length; i++){
@@ -80,12 +115,39 @@ var puzzle = function(){
 };
 
 var free = function(){
-  showRandomCard();
+  mc();
 
 };
 
 var mc = function(){
-  showRandomCard();
+  $("#card-container").append(mcTemplate);
+  $("#card-header").text(sampleFacts[card_counter].term);
+  var decoyItemHtml = [];
+  for (var i = 0; i < sampleFacts.length; i++) {
+    // $("#multiple-choice-basket").append('<li class="mc-decoy">'+sampleFacts[i].definition+'</li>')
+    var decoyString = sampleFacts[i].definition.join("")
+      normalizeMultipleChoice(decoyString);
+      shuffle(decoyItemHtml);
+      decoyItemHtml.push('<li class="mc-decoy">'+decoyString+'</li>');
+
+      // decoyItemHtml.push(sampleFacts[i]);
+  };
+  var correctAnswer = '<li class="mc-decoy">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  var correctAnswerWithCorrectClass = '<li class="mc-correct-answer">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  for(i in decoyItemHtml ){
+    if(decoyItemHtml[i] != correctAnswer){
+      console.log(decoyItemHtml[i])
+      console.log(correctAnswer)
+      if(decoyItemHtml[i].length > 29)
+        $("#multiple-choice-basket").append(decoyItemHtml[i]);
+    } else {
+      $("#multiple-choice-basket").append(correctAnswerWithCorrectClass);
+    }
+  }
+  // decoyString = decoyItemHtml.join("");
+  // decoyItemHtml.replace(",,","_")
+  // decoyItemHtml.replace(",","")
+  // decoyItemHtml.replace("_",",")
 };
 
 // --------------------
@@ -97,17 +159,25 @@ var clearOldCard = function() {
 
 };
 
-var getPuzzleCard = function() {
-}
+var normalizeMultipleChoice = function(string){
+  string.replace(",,","_");
+  string.replace(",","");
+  string.replace("_",",");
+  return string;
+};
 
 
-var check_answer = function(attemptArray) {
+var checkPuzzleAnswer = function(attemptArray) {
   var joined_array = attemptArray.join("");
   var answer = (sampleFacts[card_counter-1].definition);
   console.log("joined_array: "+joined_array);
   console.log("answer: "+answer.join(""));
   return joined_array == answer.join("");
  
+}
+
+var checkMcAnswer = function(correctAnswer) {
+
 }
 
 function shuffle(array) {
@@ -123,6 +193,7 @@ function shuffle(array) {
 function showRandomCard(){
   var cardTypes =[puzzle, free, mc];
   var index = Math.floor(Math.random()*3);
+  clearOldCard();
   cardTypes[index]();
 };
 
