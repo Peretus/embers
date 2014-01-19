@@ -23,7 +23,7 @@ var card_counter = 0;
 var mcTemplate = '<h2 id="card-header">&nbsp</h2></div><div id="multiple-choice-basket"><ul></ul></div>'
 
 
-var freeTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
+var freeTemplate = '<h2 id="card-header">&nbsp</h2><input id="free-text-field" autofocus></input>'
 
 var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
@@ -97,6 +97,19 @@ $("#card-container").on('click', ".mc-decoy",
       });
   }
 )
+
+
+// Handlers for the free response format
+// window.freeResponseTimer= setTimeout(function(){
+//   console.log("delay!")  
+// }, 3000);
+
+$("#card-container").on('keydown', "#free-text-field", function(){
+  console.log("about to set timeout.....");
+  endAndStartTimer();
+}
+  )
+
 // Setup functions for handing each card type
 
 var puzzle = function(){
@@ -115,7 +128,9 @@ var puzzle = function(){
 };
 
 var free = function(){
-  mc();
+  $("#card-container").append(freeTemplate);
+  $("#card-header").text(sampleFacts[card_counter].term);
+
 
 };
 
@@ -173,9 +188,10 @@ var checkPuzzleAnswer = function(attemptArray) {
  
 }
 
-var checkMcAnswer = function(correctAnswer) {
-
-}
+var checkAndPostFreeResponseAnswer = function(){
+  console.log("CHecking answer....");
+  
+};
 
 function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -195,6 +211,15 @@ function showRandomCard(){
 };
 
 showRandomCard();
+
+var submitFormTimer;
+
+function endAndStartTimer() {
+  window.clearTimeout(submitFormTimer);
+  //var millisecBeforeRedirect = 10000; 
+  submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
+}
+
 </script>
 
 
