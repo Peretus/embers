@@ -9,9 +9,9 @@
   <div class="row">
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
     <div id="card-container" class="small-10 med-8 large-8 columns">
-      <!-- <h2 id="card-header"></h2>
+      <h2 id="card-header"></h2>
       <div id="answer-canvas"></div>
-      <div id="answer-basket"></div> -->
+      <div id="answer-basket"></div>
     </div>
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
@@ -24,21 +24,15 @@
 var attemptArray = [];
 var sampleFacts = <%=raw @sample_facts %>;
 var card_counter = 0;
-var mc = '<h2 id="card-header"></h2>
-          <div id="answer-canvas"></div>
-          <div id="answer-basket"></div>'
+var mcTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
 
-var free = '<h2 id="card-header"></h2>
-            <div id="answer-canvas"></div>
-            <div id="answer-basket"></div>'
+var freeTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
-var puzzle = '<h2 id="card-header"></h2>
-              <div id="answer-canvas"></div>
-              <div id="answer-basket"></div>'
+var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
 // These click handlers are for the puzzle format
-$("#answer-canvas").on('click', ".answer-object",
+$("#card-container").on('click', "#answer-canvas .answer-object",
   function(){
     var $this = $(this);
     $("#answer-basket").append(this);
@@ -48,7 +42,7 @@ $("#answer-canvas").on('click', ".answer-object",
 )
 
 
-$("#answer-basket").on('click', ".answer-object",
+$("#card-container").on('click', "#answer-basket .answer-object",
   function(){
     var $this = $(this);
     $("#answer-canvas").append(this);
@@ -63,13 +57,43 @@ $("#answer-basket").on('click', ".answer-object",
         url: "",
         success: setTimeout(function(){
           clearOldCard();
-          getNewCard();
+          showRandomCard();
           
           }, 2000)
       }); 
     }
   }
 )
+// Setup functions for handing each card type
+
+var puzzle = function(){
+  clearOldCard();
+  $("#card-container").append(puzzleTemplate);
+  alert("Puzzle Card!");
+  aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
+  
+  for(i = 0; i < aCardDefinition.length; i++){
+
+    var $div = $('<div class="answer-object answer">'+aCardDefinition[i]+'</div>')
+    var header = sampleFacts[card_counter].term;
+    $("#answer-basket").append($div);
+    $("#card-header").text(header);
+  };
+  card_counter = card_counter+ 1;
+
+};
+
+var free = function(){
+  showRandomCard();
+
+};
+
+var mc = function(){
+  showRandomCard();
+};
+
+// --------------------
+
 
 var clearOldCard = function() {
   $("#card-container").empty();
@@ -78,16 +102,6 @@ var clearOldCard = function() {
 };
 
 var getPuzzleCard = function() {
-  aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
-  
-  for(i = 0; i < aCardDefinition.length; i++){
-
-    var $div = $('<div class="answer-object">'+aCardDefinition[i]+'</div>')
-    var header = sampleFacts[card_counter].term;
-    $("#answer-basket").append($div);
-    $("#card-header").text(header);
-  };
-  card_counter = card_counter+ 1;
 }
 
 
@@ -110,22 +124,14 @@ function shuffle(array) {
     return array;
 }
 
-function randomTemplate(){
-  var formats =[mc, free, puzzle];
+function showRandomCard(){
+  var cardTypes =[puzzle, free, mc];
   var index = Math.floor(Math.random()*3);
-  return formats[index];
+  cardTypes[index]();
 };
 
-getCard();
+showRandomCard();
 </script>
-
-
-
-
-
-
-
-
 
 
 
