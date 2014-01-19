@@ -9,27 +9,26 @@
   <div class="row">
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
     <div id="card-container" class="small-10 med-8 large-8 columns">
-      <h2 id="card-header"></h2>
-      <div id="answer-canvas" class=" ">
-      </div>
-      <div id="answer-basket">
-         
-      </div>
-    </div>
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
 </div>
 
 
+
 <script type="text/javascript">
  
- var attemptArray = [];
- var sampleFacts = <%=raw @sample_facts %>;
- var card_counter = 0;
+var attemptArray = [];
+var sampleFacts = <%=raw @sample_facts %>;
+var card_counter = 0;
+var mcTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
 
+var freeTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 
-$("#answer-canvas").on('click', ".answer-object",
+var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
+
+// These click handlers are for the puzzle format
+$("#card-container").on('click', "#answer-canvas .answer-object",
   function(){
     var $this = $(this);
     $("#answer-basket").append(this);
@@ -39,7 +38,7 @@ $("#answer-canvas").on('click', ".answer-object",
 )
 
 
-$("#answer-basket").on('click', ".answer-object",
+$("#card-container").on('click', "#answer-basket .answer-object",
   function(){
     var $this = $(this);
     $("#answer-canvas").append(this);
@@ -53,34 +52,54 @@ $("#answer-basket").on('click', ".answer-object",
         data: "",
         url: "",
         success: setTimeout(function(){
-          loadNextCard();
-          getCard();
+          clearOldCard();
+          showRandomCard();
           
           }, 2000)
       }); 
     }
   }
 )
+// Setup functions for handing each card type
 
-var loadNextCard = function() {
-  $("#answer-basket").empty();
-  $("#answer-canvas").empty();
-  attemptArray = [];
-
-};
-
-var getCard = function() {
+var puzzle = function(){
+  clearOldCard();
+  $("#card-container").append(puzzleTemplate);
+  alert("Puzzle Card!");
   aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
   
   for(i = 0; i < aCardDefinition.length; i++){
 
-    var $div = $('<div class="answer-object">'+aCardDefinition[i]+'</div>')
+    var $div = $('<div class="answer-object answer">'+aCardDefinition[i]+'</div>')
     var header = sampleFacts[card_counter].term;
     $("#answer-basket").append($div);
     $("#card-header").text(header);
   };
   card_counter = card_counter+ 1;
+
+};
+
+var free = function(){
+  showRandomCard();
+
+};
+
+var mc = function(){
+  showRandomCard();
+};
+
+// --------------------
+
+
+var clearOldCard = function() {
+  $("#card-container").empty();
+  attemptArray = [];
+
+};
+
+var getPuzzleCard = function() {
 }
+
 
 var check_answer = function(attemptArray) {
   var joined_array = attemptArray.join("");
@@ -101,18 +120,14 @@ function shuffle(array) {
     return array;
 }
 
-getCard();
+function showRandomCard(){
+  var cardTypes =[puzzle, free, mc];
+  var index = Math.floor(Math.random()*3);
+  cardTypes[index]();
+};
+
+showRandomCard();
 </script>
-
-
-
-
-
-
-
-
-
-
 
 
 
