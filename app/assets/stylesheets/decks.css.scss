@@ -63,5 +63,102 @@
   min-width: 200px;
   padding: 10px 20px  0 20px;
 }
+
+
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+// Place all the styles related to the Decks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+#full-width-background{
+  background-color: #f7f7f6;
+  height: 800px;
+}
+#card-header{
+  font-size: 1.5em;
+  text-align: center;
+  color: gray;
+  margin: 20px 30px 0 30px;
+  font-family: "Open Sans";
+  font-weight: 300;
 }
 
+#answer-canvas{
+  padding: 10px;
+  margin-top: 20px;
+  height: 200px;
+  min-width: 200px;
+  border: 1px solid gray;
+  background-color: #ececec;
+  border: 1px solid #cdcdcb;
+  border-radius: 10px;
+}
+
+
+#answer-canvas > div {
+  float: left;
+  margin: 2px;
+  min-width: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid #cdcdcb;
+  border-radius: 5px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+  box-shadow:inset 1px 1px 1px 1px rgba(255,255,255, 0.3);
+}
+
+#answer-basket > div {
+  float: left;
+  margin: 7px;
+  min-width: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid #cdcdcb;
+  border-radius: 5px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+#answer-basket {
+  height: 200px;
+  min-width: 200px;
+  padding: 10px 20px  0 20px;
+}
+
+
+#multiple-choice-basket > li {
+  float: left;
+  min-width: 250px;
+  list-style-type: none;
+  margin: 7px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+  border: 1px solid #cdcdcb;
+  border-radius: 7px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+  box-shadow:inset 1px 1px 1px 1px rgba(255,255,255, 0.3);
+}
