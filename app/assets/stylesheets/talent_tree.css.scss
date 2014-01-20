@@ -1,0 +1,32 @@
+/** {
+  border: 1px dashed red;
+}*/
+
+#outer-path-container {
+  width: 100%;
+
+}
+
+#inner-path-container {
+  width: 100%;
+  text-align: center;
+
+}
+
+.deck-object {
+  width: 100px;
+  height: 40px;
+  margin: 20px;
+  display: inline-block;
+  background-color: blue;
+  
+}
+
+.deck-object-lock {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+/*  margin: 10px;*/
+  background-color: yellow;
+
+}

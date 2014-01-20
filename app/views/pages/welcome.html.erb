@@ -47,16 +47,10 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
       $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
-      $.ajax({
-        type: "POST",
-        data: "",
-        url: "",
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 2000)
-      }); 
+      setTimeout(function(){
+        card_counter = card_counter+ 1;
+        showRandomCard();
+      }, 2000)
     }
   }
 )
@@ -66,16 +60,10 @@ $("#demo-card-container").on('click', ".demo-mc-correct-answer",
   function(){
     var $this = $(this);
     $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
-    $.ajax({
-        type: "POST",
-        data: "",
-        url: "",
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 2000)
-      }); 
+    setTimeout(function(){
+      card_counter = card_counter+ 1;
+      showRandomCard();
+    }, 2000)
   }
 
 )
@@ -85,16 +73,10 @@ $("#demo-card-container").on('click', ".demo-mc-decoy",
   function(){
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
-    $.ajax({
-        type: "POST",
-        data: "",
-        url: "",
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 3000)
-      });
+    setTimeout(function(){
+      card_counter = card_counter+ 1;
+      showRandomCard();
+    }, 2000)
   }
 )
 
@@ -199,16 +181,11 @@ var checkAndPostFreeResponseAnswer = function(){
   } else {
     $("#demo-free-text-field").css("background-color", "red");
   }
-  $.ajax({
-    type: "POST",
-    data: (response == answer),
-    url: "",
-    success: setTimeout(function(){
-      clearOldCard();
-      card_counter = card_counter+ 1;
-      showRandomCard();
-      }, 2000)
-  }); 
+  
+  setTimeout(function(){
+    card_counter = card_counter+ 1;
+    showRandomCard();
+  }, 2000)
 };
 
 function shuffle(array) {
