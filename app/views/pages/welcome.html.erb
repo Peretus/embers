@@ -7,12 +7,11 @@
 
 <div id="full-width-background">
   <div class="row">
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
-    <div id="card-container" class="small-10 med-8 large-8 columns">
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
+    <div class="med-4 large-4 columns">&nbsp;</div>
+    <div id="demo-card-container" class="small-12 med-7 large-7 columns">
+    <div class="med-1 large-1 columns">&nbsp;</div>
   </div>
 </div>
-<div id='mobile-canary'></div>
 
 
 
@@ -21,33 +20,33 @@
 var attemptArray = [];
 var sampleFacts = <%=raw @sample_facts %>;
 var card_counter = 0;
-var mcTemplate = '<h2 id="card-header">&nbsp</h2></div><div id="multiple-choice-basket"><ul></ul></div>'
+var mcTemplate = '<h2 id="demo-card-header">&nbsp</h2></div><div id="demo-multiple-choice-basket"><ul></ul></div>'
 
 
-var freeTemplate = '<h2 id="card-header">&nbsp</h2><input id="free-text-field" autofocus></input>'
+var freeTemplate = '<h2 id="demo-card-header">&nbsp</h2><input id="demo-free-text-field" autofocus></input>'
 
-var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
+var puzzleTemplate = '<h2 id="demo-card-header">&nbsp</h2><div id="demo-answer-canvas"></div><div id="demo-answer-basket"></div>'
 
 // These click handlers are for the puzzle format
-$("#card-container").on('click', "#answer-canvas .answer-object",
+$("#demo-card-container").on('click', "#demo-answer-canvas .demo-answer-object",
   function(){
     var $this = $(this);
-    $("#answer-basket").append(this);
+    $("#demo-answer-basket").append(this);
     var delete_index = attemptArray.indexOf($this.text());
     attemptArray.splice(delete_index, 1);
   }
 )
 
 
-$("#card-container").on('click', "#answer-basket .answer-object",
+$("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
   function(){
     var $this = $(this);
-    $("#answer-canvas").append(this);
+    $("#demo-answer-canvas").append(this);
     attemptArray.push($this.text());
     console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
-      $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
+      $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
       $.ajax({
         type: "POST",
         data: "",
@@ -63,7 +62,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
 )
 
 // These are handlers for the multiple choice format
-$("#card-container").on('click', ".mc-correct-answer",
+$("#demo-card-container").on('click', ".demo-mc-correct-answer",
   function(){
     var $this = $(this);
     $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
@@ -82,7 +81,7 @@ $("#card-container").on('click', ".mc-correct-answer",
 )
 
 
-$("#card-container").on('click', ".mc-decoy",
+$("#demo-card-container").on('click', ".demo-mc-decoy",
   function(){
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
@@ -105,7 +104,7 @@ $("#card-container").on('click', ".mc-decoy",
 //   console.log("delay!")  
 // }, 3000);
 
-$("#card-container").on('keydown', "#free-text-field", function(){
+$("#demo-card-container").on('keydown', "#demo-free-text-field", function(){
   console.log("about to set timeout.....");
   endAndStartTimer();
 }
@@ -114,50 +113,50 @@ $("#card-container").on('keydown', "#free-text-field", function(){
 // Setup functions for handing each card type
 
 var puzzle = function(){
-  $("#card-container").append(puzzleTemplate);
+  $("#demo-card-container").append(puzzleTemplate);
   aCardDefinition = shuffle(sampleFacts[card_counter].definition.slice(0));
   
   for(i = 0; i < aCardDefinition.length; i++){
 
-    var $div = $('<div class="answer-object answer">'+aCardDefinition[i]+'</div>')
+    var $div = $('<div class="demo-answer-object answer">'+aCardDefinition[i]+'</div>')
     var header = sampleFacts[card_counter].term;
-    $("#answer-basket").append($div);
-    $("#card-header").text(header);
+    $("#demo-answer-basket").append($div);
+    $("#demo-card-header").text(header);
   };
   card_counter = card_counter+ 1;
 
 };
 
 var free = function(){
-  $("#card-container").append(freeTemplate);
-  $("#card-header").text(sampleFacts[card_counter].term);
+  $("#demo-card-container").append(freeTemplate);
+  $("#demo-card-header").text(sampleFacts[card_counter].term);
 
 
 };
 
 var mc = function(){
-  $("#card-container").append(mcTemplate);
-  $("#card-header").text(sampleFacts[card_counter].term);
+  $("#demo-card-container").append(mcTemplate);
+  $("#demo-card-header").text(sampleFacts[card_counter].term);
   var decoyItemHtml = [];
   for (var i = 0; i < sampleFacts.length; i++) {
-    // $("#multiple-choice-basket").append('<li class="mc-decoy">'+sampleFacts[i].definition+'</li>')
+    // $("#demo-multiple-choice-basket").append('<li class="demo-mc-decoy">'+sampleFacts[i].definition+'</li>')
     var decoyString = sampleFacts[i].definition.join("")
       normalizeMultipleChoice(decoyString);
       shuffle(decoyItemHtml);
-      decoyItemHtml.push('<li class="mc-decoy">'+decoyString+'</li>');
+      decoyItemHtml.push('<li class="demo-mc-decoy">'+decoyString+'</li>');
 
       // decoyItemHtml.push(sampleFacts[i]);
   };
-  var correctAnswer = '<li class="mc-decoy">'+sampleFacts[card_counter].definition.join("")+'</li>'
-  var correctAnswerWithCorrectClass = '<li class="mc-correct-answer">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  var correctAnswer = '<li class="demo-mc-decoy">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  var correctAnswerWithCorrectClass = '<li class="demo-mc-correct-answer">'+sampleFacts[card_counter].definition.join("")+'</li>'
   for(i in decoyItemHtml ){
     if(decoyItemHtml[i] != correctAnswer){
       console.log(decoyItemHtml[i])
       console.log(correctAnswer)
       if(decoyItemHtml[i].length > 29)
-        $("#multiple-choice-basket").append(decoyItemHtml[i]);
+        $("#demo-multiple-choice-basket").append(decoyItemHtml[i]);
     } else {
-      $("#multiple-choice-basket").append(correctAnswerWithCorrectClass);
+      $("#demo-multiple-choice-basket").append(correctAnswerWithCorrectClass);
     }
   }
   card_counter = card_counter+ 1;
@@ -167,7 +166,7 @@ var mc = function(){
 
 
 var clearOldCard = function() {
-  $("#card-container").empty();
+  $("#demo-card-container").empty();
   attemptArray = [];
 
 };
@@ -191,14 +190,14 @@ var checkPuzzleAnswer = function(attemptArray) {
 
 var checkAndPostFreeResponseAnswer = function(){
   console.log("CHecking answer....");
-  var response = $("#free-text-field").val();
+  var response = $("#demo-free-text-field").val();
   var answer = (sampleFacts[card_counter].definition.join("").replace('"', "'"));
   console.log("answer: "+answer);
   console.log("response: "+response);
   if(response == answer){
-    $("#free-text-field").css("background-color", "green");
+    $("#demo-free-text-field").css("background-color", "green");
   } else {
-    $("#free-text-field").css("background-color", "red");
+    $("#demo-free-text-field").css("background-color", "red");
   }
   $.ajax({
     type: "POST",

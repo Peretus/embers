@@ -1,3 +1,89 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* This is the styling for the study demo on the welcome page. */
+
+#demo-card-container {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  height: 400px;
+}
+
+#demo-full-width-background{
+  background-color: #f7f7f6;
+  height: 800px;
+}
+#demo-card-header{
+  font-size: 1.5em;
+  text-align: center;
+  color: gray;
+  margin: 20px 30px 0 30px;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+#demo-answer-canvas{
+  padding: 10px;
+  margin-top: 20px;
+  height: 70px;
+  min-width: 200px;
+  border: 1px solid gray;
+  background-color: #ececec;
+  border: 1px solid #cdcdcb;
+  border-radius: 10px;
+}
+
+
+#demo-answer-canvas > div {
+  float: left;
+  margin: 2px;
+  min-width: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 13px 18px 13px 18px;
+  border: 1px solid #cdcdcb;
+  border-radius: 5px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+  box-shadow:inset 1px 1px 1px 1px rgba(255,255,255, 0.3);
+}
+
+#demo-answer-basket > div {
+  display: inline-block;
+  margin: 7px;
+  min-width: 20px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 13px 18px 13px 18px;
+  border: 1px solid #cdcdcb;
+  border-radius: 5px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
+
+#demo-answer-basket {
+  text-align: center;
+}
+
+#demo-answer-basket-container {
+  height: 200px;
+  min-width: 200px;
+  padding: 10px 20px  0 20px;
+}
+
+#demo-multiple-choice-basket > li {
+  float: left;
+  min-width: 250px;
+  list-style-type: none;
+  margin: 7px;
+  background-color: #fafafa;
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+  border: 1px solid #cdcdcb;
+  border-radius: 7px;
+  color: gray;
+  font-family: "Open Sans";
+  font-weight: 300;
+  box-shadow:inset 1px 1px 1px 1px rgba(255,255,255, 0.3);
+}
