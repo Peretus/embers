@@ -12,6 +12,7 @@
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
 </div>
+<div id='mobile-canary'></div>
 
 
 
@@ -45,7 +46,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     attemptArray.push($this.text());
     console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
-    if(checkPuzzleAnswer(attemptArray) && card_counter < sampleFacts.length) {
+    if(checkPuzzleAnswer(attemptArray)) {
       $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
       $.ajax({
         type: "POST",
@@ -93,7 +94,7 @@ $("#card-container").on('click', ".mc-decoy",
           clearOldCard();
           showRandomCard();
           
-          }, 1000)
+          }, 3000)
       });
   }
 )
@@ -190,7 +191,25 @@ var checkPuzzleAnswer = function(attemptArray) {
 
 var checkAndPostFreeResponseAnswer = function(){
   console.log("CHecking answer....");
-  setTimeout(showRandomCard, 1000);
+  var response = $("#free-text-field").val();
+  var answer = (sampleFacts[card_counter].definition.join("").replace('"', "'"));
+  console.log("answer: "+answer);
+  console.log("response: "+response);
+  if(response == answer){
+    $("#free-text-field").css("background-color", "green");
+  } else {
+    $("#free-text-field").css("background-color", "red");
+  }
+  $.ajax({
+    type: "POST",
+    data: (response == answer),
+    url: "",
+    success: setTimeout(function(){
+      clearOldCard();
+      card_counter = card_counter+ 1;
+      showRandomCard();
+      }, 2000)
+  }); 
 };
 
 function shuffle(array) {
@@ -202,12 +221,34 @@ function shuffle(array) {
     }
     return array;
 }
+// Added this to be able to detect when a user is likely on mobile.
+var checkIfMobile = function(){
+if($(window).width() > 739) {     
+    window.isMobile = false;
+  } else {
+    window.isMobile = true;
+}
+};
+
+
+
 
 function showRandomCard(){
-  var cardTypes =[puzzle, free, mc];
-  var index = Math.floor(Math.random()*3);
-  clearOldCard();
-  cardTypes[index]();
+
+  checkIfMobile();
+  if(card_counter < sampleFacts.length && isMobile != true) {
+    var cardTypes =[puzzle, free, mc];
+    var index = Math.floor(Math.random()*3);
+    clearOldCard();
+    cardTypes[index]();
+  } else if( card_counter < sampleFacts.length ) {
+    var cardTypes =[puzzle, mc];
+    var index = Math.floor(Math.random()*2);
+    clearOldCard();
+    cardTypes[index]();
+  } else {
+    alert("This was the final question");
+  }
 };
 
 showRandomCard();
@@ -219,6 +260,7 @@ function endAndStartTimer() {
   //var millisecBeforeRedirect = 10000; 
   submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
 }
+
 
 </script>
 

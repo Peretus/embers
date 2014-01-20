@@ -24,7 +24,7 @@ Fact.create!([
   {term: "Remove the last element from the 'colors' array and return it", definition: "colors.pop", deck_id: 1}
 ])
 Fact.create!([
-  {term: "Remove the first element from the 'colors' array and return it", definition: "colors.shift", deck_id: 1}
+  {term: "Remove the first element from the 'colors' array and return it (last question!)", definition: "colors.shift", deck_id: 1}
 ])
 
 
