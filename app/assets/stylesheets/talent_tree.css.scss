@@ -4,19 +4,19 @@
 
 #outer-path-container {
   width: 100%;
-
+  background-color: lightblue;
 }
 
 #inner-path-container {
-  width: 100%;
+  width: 75%;
+  background-color: lightyellow;
   text-align: center;
-
 }
 
 .deck-object {
-  width: 100px;
-  height: 40px;
-  margin: 20px;
+  width: 150px;
+  height: 70px;
+  margin: 20px 20px !important;
   display: inline-block;
   background-color: blue;
   
@@ -24,9 +24,10 @@
 
 .deck-object-lock {
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-/*  margin: 10px;*/
-  background-color: yellow;
+  width: 50px;
+  height: 50px;
+  background-color: lightgreen;
+  margin: 30px;
+
 
 }

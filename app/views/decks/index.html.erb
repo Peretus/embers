@@ -2,36 +2,47 @@
 
 <div id="full-width-background">
   <div class="row">
-    <div class="small-1 med-2 large-2 columns"></div>
+    <div class="small-1 med-2 large-2 columns">&nbsp;</div>
     
     <!-- Start of outer path container -->
     <div id="outer-path-container" class="small-10 med-8 large-8 columns">
       <div class="row">
-        <div class="small-1 med-1 large-1 columns"></div>
+        <div class="small-1 med-1 large-1 columns">&nbsp;</div>
         
         <!-- Inner container for decks -->
-        <div id="inner-path-container" class="small-10 med-10 large-10 columns">
+        <div id="inner-path-container" class="small-10 med-10 large-10 columns small-centered">
 
           <!-- level 1 -->
           <div class="row">
-            <div id="level-1-deck-1"class="small-12 med-12 -large-12 columns small-centered deck-object">"Level 1 button"</div>
-            <div class="small-12 med-12 -large-12 columns small-centered deck-object-lock"></div>
+            <div id="level-1-deck-1"class="small-12 med-12 -large-12 columns small-centered deck-object"><%= @decks.find_by.title%></div>
+            <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"></div>
           </div>
 
           <!-- level 2 -->
           <div class="row">
-            <div id="level-2-deck-1"class="small-4 med-3 -large-2 columns small-centered deck-object">lvl 2"</div>
-            <div id="level-2-deck-2"class="small-4 med-3 -large-2 columns small-centered deck-object">lvl 2.1"</div>
-            <div class="small-12 med-12 -large-12 columns small-centered deck-object-lock"></div>
+            <div class="small-10 med-10 large-8 columns small-centered">
+              <div class= "row">
+                <div id="level-2-deck-1"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.1</div>
+                <div id="level-2-deck-2"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.2</div>
+                <div id="level-2-deck-3"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.3</div>
+                <div class="small-12 med-12 -large-12 columns small-centered deck-object-lock"></div>
+              </div>
+            </div>
           </div>
 
           <!-- level 3 -->
-          
+          <div class="row">
+            <div id="level-2-deck-1"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.1</div>
+            <div id="level-2-deck-2"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.2</div>
+            <div id="level-2-deck-3"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.3</div>
+            <div id="level-2-deck-3"class="small-4 med-3 large-2 columns small-centered deck-object">lvl 2.4</div>
+            <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"></div>
+          </div>
 
         </div>
-        <div class="small-1 med-1 large-1 columns"></div>
+        <div class="small-1 med-1 large-1 columns">&nbsp;</div>
       </div>
     </div>
-    <div class="small-1 med-2 large-2 columns"></div>
+    <div class="small-1 med-2 large-2 columns">&nbsp;</div>
   </div>
 </div>

@@ -27,6 +27,17 @@ Fact.create!([
   {term: "Remove the first element from the 'colors' array and return it (last question!)", definition: "colors.shift", deck_id: 1}
 ])
 
+Deck.create!([
+  {stage: 2.1, path_id: 1, user_id: nil, title: "Enumerable"}
+])
+
+Deck.create!([
+  {stage: 2.2, path_id: 1, user_id: nil, title: "Strings"}
+])
+
+Deck.create!([
+  {stage: 2.3, path_id: 1, user_id: nil, title: "Hashes"}
+])
 
 
 
