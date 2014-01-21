@@ -5,7 +5,6 @@ class Fact < ActiveRecord::Base
   has_many :users, through: :known_facts
 
 
-
   def split_to_answer_objects 
     spaced_word = self.definition.gsub('.', " . ")
     new_spaced_word = spaced_word.gsub("(", " (")
