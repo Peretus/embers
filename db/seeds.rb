@@ -47,7 +47,7 @@ Path.create!([
   {subject: "Javascript"}
 ])
 Deck.create!([
-  {stage: 1.2, path_id: 1, user_id: nil, title: "Strings"}
+  {stage: 1.2, path_id: 2, user_id: nil, title: "Strings"}
 ])
 Fact.create!([
   {term: "What is the method to capitalize the word 'kitten'?", definition: "'kitten' . capitalize", deck_id: 2}

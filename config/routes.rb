@@ -14,7 +14,7 @@ Remory::Application.routes.draw do
 
   resources :users do
     resources :paths, only: [:index, :show] do
-      resources :decks, only: [:show] do
+      resources :decks, only: [:index, :show] do
 
       end
     end
