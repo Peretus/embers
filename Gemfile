@@ -44,6 +44,7 @@ gem 'seed_dump'
 
 gem 'riotjs-rails'
 
+gem 'hirb'
 
 
 

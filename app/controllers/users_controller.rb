@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def index
   end
 
@@ -6,5 +7,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+  end
+
+  def update_mastery_score
+    @user = current_user
+    @fact = @user.facts.find(params[:fact_id])
+    
+
   end
 end
