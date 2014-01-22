@@ -21,6 +21,22 @@ class DecksController < ApplicationController
     @facts = new_deck_facts.to_json
   end
 
-  def show_admin
+  def update
+    # @user = User.first
+    # # ^ Change this once we install devise to current_user
+    # @fact = @user.known_facts.find_by_fact_id(fact_params)
+    # @fact.mastery_score+=params[:points_earned]
+    # @fact.last_seen = Time.now
+    # @fact.save
+
+    @user_fact = User.first.known_facts.find_by_fact_id(params[:id])
+    @user_fact.update(fact_params)
+    render json:  @user_fact.to_json, status: 200
   end
+
+private
+  def fact_params
+    params.require(:fact).permit(:fact_id, :mastery_score)
+  end
+
 end

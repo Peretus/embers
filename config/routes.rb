@@ -14,7 +14,7 @@ Remory::Application.routes.draw do
 
   resources :users do
     resources :paths, only: [:index, :show] do
-      resources :decks, only: [:index, :show] do
+      resources :decks, only: [:index, :show, :update] do
 
       end
     end
@@ -25,6 +25,7 @@ Remory::Application.routes.draw do
   end
 
   get "/users/:user_id/decks/:id" => "decks#show_admin", as: "user_deck_admin_show"
+  post "/users/:user_id/decks/:id" => "decks#update", as: "user_deck_update"
 
   root "pages#welcome"
   

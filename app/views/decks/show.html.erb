@@ -16,7 +16,7 @@
 <div id='mobile-canary'></div>
 
 
-
+<% content_for :javascript do %>
 <script type="text/javascript">
  
 var attemptArray = [];
@@ -67,8 +67,12 @@ $("#card-container").on('click', "#answer-basket .answer-object",
           
           }, 2000)
       }); 
-    } else if(attemptArray.length === ){
+    } else if(attemptArray.length === (sampleFacts[card_counter-1].definition).length){
+      notifyLostPoints(-20);
+      $("#answer-canvas > div").css({"border": "1px solid red", "background-color": "red", "color" : "white"})
+      // TODO Send a post
 
+      setTimeout(showRandomCard,2000)
     }
   }
 )
@@ -79,10 +83,13 @@ $("#card-container").on('click', ".mc-correct-answer",
     var $this = $(this);
     $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
     notifyPlusPoints(10);
+    sampleFacts[card_counter-1].points_earned = 10
+    console.log(sampleFacts[card_counter-1])
+    sampleFacts[card_counter-1]
     $.ajax({
-        type: "POST",
+        type: "post",
         data: "",
-        url: "",
+        url: "<%= user_path_deck_path %>",
         success: setTimeout(function(){
           clearOldCard();
           showRandomCard();
@@ -97,10 +104,12 @@ $("#card-container").on('click', ".mc-decoy",
   function(){
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
+    notifyLostPoints(-30);
     $.ajax({
         type: "POST",
-        data: "",
-        url: "",
+        data: {fact: {fact_id: sampleFacts[card_counter-1].id, mastery_score: -30}},
+        dataType: "json",
+        url: "<%= user_deck_update_path %>",
         success: setTimeout(function(){
           clearOldCard();
           showRandomCard();
@@ -216,7 +225,7 @@ var checkAndPostFreeResponseAnswer = function(){
   $.ajax({
     type: "POST",
     data: (response == answer),
-    url: "",
+    url: "<%= user_path_deck_path %>",
     success: setTimeout(function(){
       clearOldCard();
       card_counter = card_counter+ 1;
@@ -224,6 +233,7 @@ var checkAndPostFreeResponseAnswer = function(){
       }, 2000)
   }); 
 };
+
 
 function shuffle(array) {
     for (var i = array.length - 1; i > 0; i--) {
@@ -288,10 +298,9 @@ function endAndStartTimer() {
   submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
 }
 
-
 </script>
 
-
+<% end %>
 
 
 
