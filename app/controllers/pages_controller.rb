@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :check_login
   def about
   end
 
