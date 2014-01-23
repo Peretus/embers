@@ -11,12 +11,12 @@ class DecksController < ApplicationController
     new_deck_facts = []
     unless @user.facts.include?(@deck_facts.first)
       @deck_facts.each do |fact|
-        @user.known_facts.create(:fact_id=> fact.id, :user_id => @user.id, :mastery_score => 0.0, :last_seen => Time.now) 
+        @user.known_facts.create(:fact_id=> fact.id, :user_id => @user.id, :decaying_mastery_score => 0.0, :times_seen => 0, :last_seen => Time.now) 
       end
     end
     @deck_facts.each do |fact|
       words = fact.split_to_answer_objects
-      new_deck_facts << { term: fact.term, definition: words, id: fact.id}
+      new_deck_facts << { term: fact.term, definition: words, fact_id: fact.id}
     end
     @facts = new_deck_facts.to_json
   end
@@ -29,14 +29,16 @@ class DecksController < ApplicationController
     # @fact.last_seen = Time.now
     # @fact.save
 
-    @user_fact = User.first.known_facts.find_by_fact_id(params[:id])
-    @user_fact.update(fact_params)
+    @user_fact = User.first.known_facts.find_by_fact_id(params[:fact_id])
+    @user_fact.last_mastery_score = params[:last_mastery_score]
+    @user_fact.last_seen = Time.now
+    @user_fact.times_seen += 1
     render json:  @user_fact.to_json, status: 200
   end
 
 private
   def fact_params
-    params.require(:fact).permit(:fact_id, :mastery_score)
+    params.require(:known_fact).permit(:fact_id, :last_mastery_score)
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117165540) do
+ActiveRecord::Schema.define(version: 20140123001008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,11 +55,13 @@ ActiveRecord::Schema.define(version: 20140117165540) do
 
   create_table "known_facts", force: true do |t|
     t.datetime "last_seen"
-    t.float    "mastery_score"
+    t.float    "decaying_mastery_score"
     t.integer  "user_id"
     t.integer  "fact_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "last_mastery_score"
+    t.integer  "times_seen"
   end
 
   add_index "known_facts", ["fact_id"], name: "index_known_facts_on_fact_id", using: :btree
@@ -75,7 +77,6 @@ ActiveRecord::Schema.define(version: 20140117165540) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
 
   create_table "users", force: true do |t|
     t.string   "name"

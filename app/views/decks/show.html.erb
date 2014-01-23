@@ -54,25 +54,31 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     if(checkPuzzleAnswer(attemptArray)) {
       $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
        notifyPlusPoints(25);
+       console.log("Card counter before puzzle ajax: "+card_counter)
       $.ajax({
-        type: "POST",
-        data: "",
-        url: "",
-        error: function(data){
-          alert("Sorry, our server is down.")
-        },
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 2000)
-      }); 
-    } else if(attemptArray.length === (sampleFacts[card_counter-1].definition).length){
+          type: "POST",
+          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+          dataType: "json",
+          url: "<%= user_deck_update_path %>"
+        });
+      setTimeout(function(){
+        clearOldCard();
+        showRandomCard();
+      }, 3000)
+    } else if(attemptArray.length === (sampleFacts[card_counter].definition).length){
       notifyLostPoints(-20);
       $("#answer-canvas > div").css({"border": "1px solid red", "background-color": "red", "color" : "white"})
-      // TODO Send a post
-
-      setTimeout(showRandomCard,2000)
+      console.log("Card counter before puzzle ajax: "+card_counter)
+      $.ajax({
+          type: "POST",
+          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+          dataType: "json",
+          url: "<%= user_deck_update_path %>"
+        });
+      setTimeout(function(){
+        clearOldCard();
+        showRandomCard();
+      }, 3000)
     }
   }
 )
@@ -83,19 +89,17 @@ $("#card-container").on('click', ".mc-correct-answer",
     var $this = $(this);
     $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
     notifyPlusPoints(10);
-    sampleFacts[card_counter-1].points_earned = 10
-    console.log(sampleFacts[card_counter-1])
-    sampleFacts[card_counter-1]
+    console.log("Card counter before multiple choice correct ajax: "+card_counter);
     $.ajax({
-        type: "post",
-        data: "",
-        url: "<%= user_path_deck_path %>",
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 2000)
-      }); 
+        type: "POST",
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+        dataType: "json",
+        url: "<%= user_deck_update_path %>"
+      });
+    setTimeout(function(){
+      clearOldCard();
+      showRandomCard();
+    }, 3000) 
   }
 )
 
@@ -105,17 +109,17 @@ $("#card-container").on('click', ".mc-decoy",
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
     notifyLostPoints(-30);
+    console.log("Card counter before mc incorrect ajax: "+card_counter)
     $.ajax({
         type: "POST",
-        data: {fact: {fact_id: sampleFacts[card_counter-1].id, mastery_score: -30}},
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
         dataType: "json",
-        url: "<%= user_deck_update_path %>",
-        success: setTimeout(function(){
-          clearOldCard();
-          showRandomCard();
-          
-          }, 3000)
+        url: "<%= user_deck_update_path %>"
       });
+    setTimeout(function(){
+      clearOldCard();
+      showRandomCard();
+    }, 3000)
   }
 )
 
@@ -144,7 +148,6 @@ var puzzle = function(){
     $("#answer-basket").append($div);
     $("#card-header").text(header);
   };
-  card_counter = card_counter+ 1;
 
 };
 
@@ -180,17 +183,12 @@ var mc = function(){
       $("#multiple-choice-basket").append(correctAnswerWithCorrectClass);
     }
   }
-  card_counter = card_counter+ 1;
 };
 
 // --------------------
 
 
-var clearOldCard = function() {
-  $("#card-container").empty();
-  attemptArray = [];
 
-};
 
 var normalizeMultipleChoice = function(string){
   string.replace(",,","_");
@@ -202,7 +200,7 @@ var normalizeMultipleChoice = function(string){
 
 var checkPuzzleAnswer = function(attemptArray) {
   var joined_array = attemptArray.join("");
-  var answer = (sampleFacts[card_counter-1].definition);
+  var answer = (sampleFacts[card_counter].definition);
   console.log("joined_array: "+joined_array);
   console.log("answer: "+answer.join(""));
   return joined_array == answer.join("");
@@ -218,20 +216,33 @@ var checkAndPostFreeResponseAnswer = function(){
   if(response === answer){
     $("#free-text-field").css("background-color", "green");
     notifyPlusPoints(50);
+    console.log("Card counter before free response ajax: "+card_counter)
+    $.ajax({
+        type: "POST",
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+        dataType: "json",
+        url: "<%= user_deck_update_path %>"
+      });
+    setTimeout(function(){
+      clearOldCard();
+      showRandomCard();
+    }, 3000)
   } else {
+
     $("#free-text-field").css("background-color", "red");
     notifyLostPoints(-5);
-  }
-  $.ajax({
-    type: "POST",
-    data: (response == answer),
-    url: "<%= user_path_deck_path %>",
-    success: setTimeout(function(){
+    console.log("Card counter before free response ajax: "+card_counter)
+    $.ajax({
+        type: "POST",
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+        dataType: "json",
+        url: "<%= user_deck_update_path %>"
+      });
+    setTimeout(function(){
       clearOldCard();
-      card_counter = card_counter+ 1;
       showRandomCard();
-      }, 2000)
-  }); 
+    }, 3000)
+  }  
 };
 
 
@@ -269,26 +280,27 @@ var notifyLostPoints = function(points){
   },2000)
 }
 
+var clearOldCard = function() {
+  $("#card-container").empty();
+  attemptArray = [];
+  card_counter+=1;
+};
 
 function showRandomCard(){
-
+  console.log(card_counter)
   checkIfMobile();
   if(card_counter <= sampleFacts.length && isMobile != true) {
     var cardTypes =[puzzle, free, mc];
     var index = Math.floor(Math.random()*3);
-    clearOldCard();
     cardTypes[index]();
   } else if( card_counter < sampleFacts.length ) {
     var cardTypes =[puzzle, mc];
     var index = Math.floor(Math.random()*2);
-    clearOldCard();
     cardTypes[index]();
   } else {
     alert("This was the final question");
   }
 };
-
-showRandomCard();
 
 var submitFormTimer;
 
@@ -298,6 +310,7 @@ function endAndStartTimer() {
   submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
 }
 
+showRandomCard();
 </script>
 
 <% end %>
