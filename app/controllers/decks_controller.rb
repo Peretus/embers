@@ -33,6 +33,7 @@ class DecksController < ApplicationController
     @user_fact.last_mastery_score = params[:last_mastery_score]
     @user_fact.last_seen = Time.now
     @user_fact.times_seen += 1
+    @user_fact.save
     render json:  @user_fact.to_json, status: 200
   end
 
