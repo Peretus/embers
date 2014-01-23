@@ -2,10 +2,6 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
 
-<%= link_to "Show a page", "/2.1", 'data-transition' => "pop" %>
-
-
-
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 <div id="full-width-background">
@@ -19,6 +15,11 @@
         
         <!-- Inner container for decks -->
         <div id="inner-path-container" class="small-10 med-10 large-10 columns small-centered">
+
+          <div class="row">
+                <%= link_to "due cards", user_due_facts_path, "data-transition" => "pop" %>
+          </div>
+
 
           <!-- level 1 -->
           <div class="row">

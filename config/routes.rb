@@ -27,6 +27,9 @@ Remory::Application.routes.draw do
   get "/users/:user_id/decks/:id" => "decks#show_admin", as: "user_deck_admin_show"
   post "/users/:user_id/decks/:id" => "decks#update", as: "user_deck_update"
 
+  get "/users/:user_id/due_facts" => "known_facts#show", as: "user_due_facts"
+  post "/users/:user_id/due_facts" => "known_facts#update", as: "user_known_facts_update"
+
   root "pages#welcome"
   
 

@@ -12,7 +12,5 @@ class UsersController < ApplicationController
   def update_mastery_score
     @user = current_user
     @fact = @user.facts.find(params[:fact_id])
-    
-
   end
 end

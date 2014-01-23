@@ -1,4 +1,4 @@
-require 'pry'
+
 class KnownFact < ActiveRecord::Base
   belongs_to :user
   belongs_to :fact
@@ -8,8 +8,7 @@ class KnownFact < ActiveRecord::Base
     if times_seen != 0
       last_mastery_score = self.last_mastery_score
       days_since_last_seen = (Time.now - self.last_seen)/60/60/24
-      decayed_score = last_mastery_score - (days_since_last_seen*(1/(2*times_seen))*last_mastery_score)
-      binding.pry
+      decayed_score = last_mastery_score - (days_since_last_seen*(1.0/(2.0*times_seen))*last_mastery_score)
       if decayed_score > 0
         self.decaying_mastery_score = decayed_score
       else

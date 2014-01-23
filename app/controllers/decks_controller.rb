@@ -32,7 +32,9 @@ class DecksController < ApplicationController
     @user_fact = User.first.known_facts.find_by_fact_id(params[:fact_id])
     @user_fact.last_mastery_score = params[:last_mastery_score]
     @user_fact.last_seen = Time.now
-    @user_fact.times_seen += 1
+    if params[:last_mastery_score].to_i > 0
+      @user_fact.times_seen += 1
+    end
     @user_fact.save
     render json:  @user_fact.to_json, status: 200
   end
