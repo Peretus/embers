@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
   
   def index
@@ -10,7 +11,13 @@ class UsersController < ApplicationController
   end
 
   def update_mastery_score
-    @user = current_user
+    @user = User.find(current_user.id)
     @fact = @user.facts.find(params[:fact_id])
+  end
+
+  def create
+
+binding.pry
+    
   end
 end

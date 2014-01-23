@@ -30,7 +30,13 @@ Remory::Application.routes.draw do
   get "/users/:user_id/due_facts" => "known_facts#show", as: "user_due_facts"
   post "/users/:user_id/due_facts" => "known_facts#update", as: "user_known_facts_update"
 
-  root "pages#welcome"
+  authenticated :user do
+    root :to => "decks#index", :as => "authenticated_root"
+  end
+
+  unauthenticated do
+    root :to => "pages#welcome", :as => "unauthenticated_root"
+  end
   
 
 

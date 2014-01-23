@@ -1,11 +1,11 @@
 class DecksController < ApplicationController
   def index
-    @user = User.find(params[:user_id])
+    @user = User.find(current_user.id)
     @decks = @user.paths.first.decks.all
   end
 
   def show
-    @user =  User.first
+    @user =  User.find(current_user.id)
     # ^ Change this once we install devise to current_user
     @deck_facts = Deck.find(params[:id]).facts
     new_deck_facts = []
@@ -22,14 +22,14 @@ class DecksController < ApplicationController
   end
 
   def update
-    # @user = User.first
+    @user = User.find(current_user.id)
     # # ^ Change this once we install devise to current_user
     # @fact = @user.known_facts.find_by_fact_id(fact_params)
     # @fact.mastery_score+=params[:points_earned]
     # @fact.last_seen = Time.now
     # @fact.save
 
-    @user_fact = User.first.known_facts.find_by_fact_id(params[:fact_id])
+    @user_fact = @user.known_facts.find_by_fact_id(params[:fact_id])
     @user_fact.last_mastery_score = params[:last_mastery_score]
     @user_fact.last_seen = Time.now
     if params[:last_mastery_score].to_i > 0

@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   has_many :paths, through: :enrollments
   has_many :known_facts
   has_many :facts, through: :known_facts
+
+  after_create :add_path
+
+  def add_path
+    self.enrollments.create(path_id: 1)
+  end
+
 end

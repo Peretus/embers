@@ -1,6 +1,6 @@
 class KnownFactsController < ApplicationController
   def show
-      @user =  User.first
+      @user =  User.find(current_user.id)
       # ^ Change this once we install devise to current_user
       @due_facts_ref = @user.known_facts.where("decaying_mastery_score < 50.0" || "last_mastery_score == 0.0")
       due_facts = []
@@ -17,14 +17,14 @@ class KnownFactsController < ApplicationController
   end
 
   def update
-    # @user = User.first
+    @user = User.find(current_user.id)
     # # ^ Change this once we install devise to current_user
     # @fact = @user.known_facts.find_by_fact_id(fact_params)
     # @fact.mastery_score+=params[:points_earned]
     # @fact.last_seen = Time.now
     # @fact.save
 
-    @user_fact = User.first.known_facts.find_by_fact_id(params[:fact_id])
+    @user_fact = @user.known_facts.find_by_fact_id(params[:fact_id])
     @user_fact.last_mastery_score = params[:last_mastery_score]
     @user_fact.last_seen = Time.now
     if params[:last_mastery_score].to_i > 0
