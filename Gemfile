@@ -34,6 +34,8 @@ gem 'binding_of_caller'
 
 gem "better_errors"
 
+gem 'pry'
+
 gem "devise"
 
 gem "foundation-rails"
