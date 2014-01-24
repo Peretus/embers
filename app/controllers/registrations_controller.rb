@@ -15,9 +15,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
           expire_data_after_sign_in!
           respond_with resource, :location => after_inactive_sign_up_path_for(resource)
         end
-
-binding.pry
-
       else
         clean_up_passwords resource
         respond_with resource
