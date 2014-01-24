@@ -37,6 +37,8 @@ gem "better_errors"
 gem 'pry'
 
 gem "devise"
+gem 'omniauth'
+gem 'omniauth-facebook' 
 
 gem "foundation-rails"
 

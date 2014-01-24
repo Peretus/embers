@@ -1,5 +1,5 @@
 Remory::Application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   get "facts/index"
   get "facts/show"
   get "decks/index"

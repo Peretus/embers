@@ -1,4 +1,5 @@
 <h2>Sign up</h2>
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
 
 <%= form_for(:user, :url => user_registration_path) do |f| %>
   <%= devise_error_messages! %>
