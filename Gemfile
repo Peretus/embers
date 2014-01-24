@@ -39,6 +39,8 @@ gem 'pry'
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook' 
+gem 'omniauth-google-oauth2'
+gem 'google-api-client'
 
 gem "foundation-rails"
 

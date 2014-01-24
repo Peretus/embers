@@ -24,6 +24,9 @@ Devise.setup do |config|
   require "omniauth-facebook"
   config.omniauth :facebook, "599529846786506", "d0859148cfafffd400c520c9cd95bf47"
 
+
+  require "omniauth-google-oauth2"
+  config.omniauth :google_oauth2, "526925128329-fj6ms42pme4c4fes4ddh3589h4cfnqp5", "NmaSsfMy-1ZQyZ3wmx7-_shT", { access_type: "offline", approval_prompt: "" }
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
