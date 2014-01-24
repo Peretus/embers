@@ -24,7 +24,6 @@
         <!-- Right Nav Section -->
         <ul class="right">
           <% if user_signed_in?%>
-          Signed in as <%= current_user.name %>
             <%= content_tag(:li, link_to("Sign out", destroy_user_session_path, method: "delete"))%>
           <% else %>
             <li><a href="#" data-reveal-id="sign-up-form">Sign up</a></li>
