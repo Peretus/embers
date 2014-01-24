@@ -31,25 +31,38 @@ Deck.create!([
   {stage: 2.1, path_id: 1, user_id: nil, title: "Enumerable"}
 ])
 
+Fact.create!([
+  {term: "Console log 'hello'", definition: "console.log('hello')", deck_id: 2}
+])
+
+
 Deck.create!([
   {stage: 2.2, path_id: 1, user_id: nil, title: "Strings"}
 ])
+
+Fact.create!([
+  {term: "Find the length of the word 'kitten'", definition: "'kitten'.length", deck_id: 3}
+])
+
 
 Deck.create!([
   {stage: 2.3, path_id: 1, user_id: nil, title: "Hashes"}
 ])
 
-
-
-# another deck
-
-Path.create!([
-  {subject: "Javascript"}
-])
-Deck.create!([
-  {stage: 1.2, path_id: 2, user_id: nil, title: "Strings"}
-])
 Fact.create!([
-  {term: "What is the method to capitalize the word 'kitten'?", definition: "'kitten' . capitalize", deck_id: 2}
+  {term: "Create an empty hash called fruit.", definition: "fruit = {}", deck_id: 4}
 ])
+
+
+# # another deck
+
+# Path.create!([
+#   {subject: "Javascript"}
+# ])
+# Deck.create!([
+#   {stage: 1.2, path_id: 2, user_id: nil, title: "Strings"}
+# ])
+# Fact.create!([
+#   {term: "What is the method to capitalize the word 'kitten'?", definition: "'kitten' . capitalize", deck_id: 2}
+# ])
 

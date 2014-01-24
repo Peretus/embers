@@ -7,12 +7,14 @@ class DecksController < ApplicationController
   def show
     @user =  User.find(current_user.id)
     # ^ Change this once we install devise to current_user
+    @deck = Deck.find(params[:id])
     @deck_facts = Deck.find(params[:id]).facts
     new_deck_facts = []
     unless @user.facts.include?(@deck_facts.first)
       @deck_facts.each do |fact|
         @user.known_facts.create(:fact_id=> fact.id, :user_id => @user.id, :decaying_mastery_score => 0.0, :times_seen => 0, :last_seen => Time.now) 
       end
+      @deck.active = true
     end
     @deck_facts.each do |fact|
       words = fact.split_to_answer_objects
