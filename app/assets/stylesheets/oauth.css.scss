@@ -1,20 +1,73 @@
 
 
-
-
-#header-holder{
-  
+#header-holder h2{
+  font-size: 1.2em;
+  margin: 0;
 }
 
-#header-holder a{
-  
+#modal-container{
+  vertical-align: top;
 }
 
+@media (min-width: 700px) {
 
-#oauth-container{
+  #around-buttons{
   margin: 40px 0;
+  }
+
+  #oauth-container{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+  }
+
+
+  #sign-up-container{
+    width: 55%;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+  }
+
+
+  .oauth-link{
+    width: 80%;
+  }
+
 }
 
+@media (max-width: 699px) {
+  #oauth-container{
+    width: 90%;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 0 40px 0;
+  }
+
+
+  #sign-up-container{
+    width: 90%;
+    display: inline-block;
+    vertical-align: top;
+    
+  }
+
+  .oauth-link{
+    width: 100%;
+  }
+
+}
+
+#user_password_confirmation, #user_password, #user_email{
+  background-position: 96% 50% !important;
+}
+
+
+#sign-up-container a{
+
+  color: gray;
+}
 
 h5{
   font-size: .80em;
@@ -24,7 +77,7 @@ h5{
 
 .oauth-link{
   padding: 15px;
-  width: 200px;
+ /* width: 80%;*/
   font-size: .80em;
   color: white;
   text-align: center;
@@ -42,14 +95,64 @@ h5{
 #fb-signin{
   background-color: #3f57a5;
 }
-
+#fb-signin:hover{
+  background-color: #2c3b8f;
+}
 
 #g-signin{
   background-color: #da4c37;
+}
+#g-signin:hover{
+  background-color: #bf3c25;
 }
 
 
 #tw-signin{
   background-color: #4fb7f1;  
 }
+#tw-signin:hover{
+  background-color: #3793d4;
+}
 
+.line-separator{
+
+  height:1px;
+  width: 80%;
+  background: lightgray;
+  border-bottom:1px solid lightgray;
+
+}
+
+
+.line-separator-email{
+
+  height:1px;
+  width: 90%;
+  background: lightgray;
+  border-bottom:1px solid lightgray;
+
+}
+
+#modal-grandparent{
+  padding: 0 20px;
+
+}
+
+
+#sign-up-button{
+  background-color: gray;
+  border-radius: 3px;
+  font-size: .8em;
+  color: white;
+  font-family: "Open Sans";
+  padding: 10px 20px;
+}
+#sign-up-button:hover{
+  background-color: darkgray;
+}
+#sign-up-button a{
+  font-size: 1em;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 300;
+}
