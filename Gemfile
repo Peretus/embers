@@ -42,6 +42,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client'
 gem 'omniauth-twitter' 
+# gem 'github-oauth'
+gem 'figaro'
+
 
 gem "foundation-rails"
 

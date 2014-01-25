@@ -22,13 +22,13 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "599529846786506", "d0859148cfafffd400c520c9cd95bf47"
+  config.omniauth :facebook, ENV["FB_1"], ENV["FB_2"]
 
   require "omniauth-google-oauth2"
-  config.omniauth :google_oauth2, "526925128329-fj6ms42pme4c4fes4ddh3589h4cfnqp5", "NmaSsfMy-1ZQyZ3wmx7-_shT", { access_type: "offline", approval_prompt: "" }
+  config.omniauth :google_oauth2, ENV["G_1"], ENV["G_2"], { access_type: "offline", approval_prompt: "" }
   
   require 'omniauth-twitter'
-  config.omniauth :twitter ,"0O1fuAhNEqPz1AhaC28NA", "kTpAbhb2OTrmeFkXoovjCjGQbmxQvXhGinm58MqPI"
+  config.omniauth :twitter ,ENV["T_1"], ENV["T_1"]
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
