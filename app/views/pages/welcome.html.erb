@@ -222,8 +222,9 @@ function showRandomCard(){
     clearOldCard();
     cardTypes[index]();
   } else {
+    $("#sign-up-form h2").first().text("Create an account and save your progress: ");
+    $("#sign-up-form h2").eq(1).empty();
     $("#sign-up-form").foundation('reveal', 'open');
-    console.log("last question!")
   }
 };
 
