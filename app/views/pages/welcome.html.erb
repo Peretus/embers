@@ -222,7 +222,8 @@ function showRandomCard(){
     clearOldCard();
     cardTypes[index]();
   } else {
-    alert("This was the final question");
+    $("#sign-up-form").foundation('reveal', 'open');
+    console.log("last question!")
   }
 };
 
