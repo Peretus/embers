@@ -1,7 +1,6 @@
 
 
 
-
 #header-holder{
   
 }
@@ -10,10 +9,41 @@
   
 }
 
+@media (min-width: 700px) {
+  #oauth-container{
+    margin: 40px 0;
+    width: 40%;
+    display: inline-block;
+    float: left;
+  }
 
-#oauth-container{
-  margin: 40px 0;
+
+  #sign-up-container{
+    width: 60%;
+    display: inline-block;
+    float: left;
+    
+  }
+
 }
+
+@media (max-width: 699px) {
+  #oauth-container{
+    margin: 40px 0;
+    width: 90%;
+    display: inline-block;
+  }
+
+
+  #sign-up-container{
+    width: 90%;
+    display: inline-block;
+    
+  }
+
+}
+
+
 
 
 h5{
@@ -24,7 +54,7 @@ h5{
 
 .oauth-link{
   padding: 15px;
-  width: 200px;
+  width: 80%;
   font-size: .80em;
   color: white;
   text-align: center;
