@@ -79,6 +79,9 @@ $("#demo-card-container").on('click', ".demo-mc-decoy",
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
     setTimeout(function(){
+      $(".demo-mc-correct-answer").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
+    }, 900)
+    setTimeout(function(){
       card_counter = card_counter+ 1;
       showRandomCard();
     }, 2000)
