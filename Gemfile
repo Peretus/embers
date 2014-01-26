@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+group :development do
+  gem 'binding_of_caller'
+  gem "better_errors"
+  gem 'pry'
+  gem 'seed_dump'
+  gem 'hirb'
+end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 
@@ -30,12 +37,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'underscore-rails'
 
-gem 'binding_of_caller'
-
-gem "better_errors"
-
-gem 'pry'
-
 gem "devise"
 gem 'omniauth'
 gem 'omniauth-facebook' 
@@ -50,11 +51,8 @@ gem "foundation-rails"
 
 gem 'rails_12factor'
 
-gem 'seed_dump'
-
 gem 'riotjs-rails'
 
-gem 'hirb'
 
 
 
