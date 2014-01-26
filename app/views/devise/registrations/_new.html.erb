@@ -17,7 +17,9 @@
        
         <%= link_to user_omniauth_authorize_path(:facebook) do %>
           <button id="fb-signin" class="oauth-link">
-           <i class="fa fa-twitter"></i>
+            <div class="button-icon">
+              <i class="fa fa-facebook"></i>
+            </div>
             Sign in with Facebook
           </button>
         <% end %>
@@ -26,7 +28,9 @@
         
         <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
           <button id="g-signin" class="oauth-link">
-           <i class="fa fa-twitter"></i>
+            <div class="button-icon">
+              <i class="fa fa-google-plus"></i>
+            </div>
             Sign in with Google
           </button>
         <% end %>
@@ -36,7 +40,9 @@
 
         <%= link_to user_omniauth_authorize_path(:twitter) do %>
           <button id="tw-signin" class="oauth-link">
-           <i class="fa fa-twitter"></i>
+            <div class="button-icon">
+              <i class="fa fa-twitter"></i>
+            </div>
             Sign in with Twitter
           </button>
         <% end %>
