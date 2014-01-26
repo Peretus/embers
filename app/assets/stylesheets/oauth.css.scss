@@ -30,9 +30,21 @@
     float: right;
   }
 
-
   .oauth-link{
     width: 80%;
+  }
+
+  .line-separator{
+    height:1px;
+    width: 80%;
+    background: lightgray;
+    border-bottom:1px solid lightgray;
+  }
+  .line-separator-email{
+    height:1px;
+    width: 90%;
+    background: lightgray;
+    border-bottom:1px solid lightgray;
   }
 
 }
@@ -49,12 +61,26 @@
   #sign-up-container{
     width: 90%;
     display: inline-block;
-    vertical-align: top;
-    
+    vertical-align: top; 
   }
 
   .oauth-link{
     width: 100%;
+  }
+
+  .line-separator{
+    height:1px;
+    width: 100%;
+    background: lightgray;
+    border-bottom:1px solid lightgray;
+    margin-bottom: 20px;
+  }
+
+  .line-separator-email{
+    height:1px;
+    width: 100%;
+    background: lightgray;
+    border-bottom:1px solid lightgray;
   }
 
 }
@@ -114,24 +140,6 @@ h5{
   background-color: #3793d4;
 }
 
-.line-separator{
-
-  height:1px;
-  width: 80%;
-  background: lightgray;
-  border-bottom:1px solid lightgray;
-
-}
-
-
-.line-separator-email{
-
-  height:1px;
-  width: 90%;
-  background: lightgray;
-  border-bottom:1px solid lightgray;
-
-}
 
 #modal-grandparent{
   padding: 0 20px;
