@@ -14,11 +14,39 @@
       <div class="line-separator"></div>
 
       <div id="around-buttons">
-        <button id="fb-signin" class="oauth-link"><%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %></button><br />
+       
+        <%= link_to user_omniauth_authorize_path(:facebook) do %>
+          <button id="fb-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-facebook"></i>
+            </div>
+            Sign in with Facebook
+          </button>
+        <% end %>
 
-        <button id="g-signin" class="oauth-link"><%= link_to "Sign up with Google", user_omniauth_authorize_path(:google_oauth2) %></button><br />
+      
+        
+        <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
+          <button id="g-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-google-plus"></i>
+            </div>
+            Sign in with Google
+          </button>
+        <% end %>
 
-        <button id="tw-signin" class="oauth-link"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></button>
+
+
+
+        <%= link_to user_omniauth_authorize_path(:twitter) do %>
+          <button id="tw-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-twitter"></i>
+            </div>
+            Sign in with Twitter
+          </button>
+        <% end %>
+
       </div>
     </div>
 

@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
-    <title><%= content_for?(:title) ? yield(:title) : "Remory" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Embers" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -34,7 +35,7 @@
       </section>
     </nav>
     <div id="sign-up-form" class="reveal-modal" data-reveal>
-      <!-- <h2>Awesome. I have it.</h2> -->
+      <h2></h2>
        <%= render "devise/registrations/new" %>
       <a class="close-reveal-modal">&#215;</a>
     </div>

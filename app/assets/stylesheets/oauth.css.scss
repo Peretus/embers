@@ -40,6 +40,7 @@
     background: lightgray;
     border-bottom:1px solid lightgray;
   }
+
   .line-separator-email{
     height:1px;
     width: 90%;
@@ -106,7 +107,7 @@ h5{
  /* width: 80%;*/
   font-size: .80em;
   color: white;
-  text-align: center;
+  text-align: left;
   border-radius: 3px;
 
 }
@@ -116,6 +117,7 @@ h5{
   color: white;
   font-family: "Open Sans";
   font-weight: 300;
+  vertical-align: center;
 }
 
 #fb-signin{
@@ -140,7 +142,6 @@ h5{
   background-color: #3793d4;
 }
 
-
 #modal-grandparent{
   padding: 0 20px;
 
@@ -155,12 +156,27 @@ h5{
   font-family: "Open Sans";
   padding: 10px 20px;
 }
+
 #sign-up-button:hover{
   background-color: darkgray;
 }
+
 #sign-up-button a{
   font-size: 1em;
   color: white;
   font-family: "Open Sans";
   font-weight: 300;
 }
+
+.button-icon{
+  float: left;
+  width: 50px;
+  padding-right: 30px;
+  padding-left: 5px;
+}
+
+.fa-twitter, .fa-facebook, .fa-google-plus{
+  font-size: 1.5em;
+}
+
+
