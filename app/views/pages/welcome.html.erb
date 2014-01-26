@@ -47,11 +47,16 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
       $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
+      $("#onboarding").remove();
+      $("#demo-card-container").append("<p id='onboarding'>Great job!</p>")
       setTimeout(function(){
         card_counter = card_counter+ 1;
         showRandomCard();
-      }, 2000)
-    }
+      }, 2500);
+    } else if(attemptArray.length === (sampleFacts[card_counter-1].definition).length){
+      $("#onboarding").remove();
+      $("#demo-card-container").append("<p id='onboarding'>Hmm, that doesn't look quite right.  Try <strong>"+sampleFacts[card_counter-1].definition.join("")+"</strong></p>")
+    } 
   }
 )
 
@@ -163,8 +168,6 @@ var normalizeMultipleChoice = function(string){
 var checkPuzzleAnswer = function(attemptArray) {
   var joined_array = attemptArray.join("");
   var answer = (sampleFacts[card_counter-1].definition);
-  console.log("joined_array: "+joined_array);
-  console.log("answer: "+answer.join(""));
   return joined_array == answer.join("");
  
 }
