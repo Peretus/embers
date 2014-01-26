@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
                               email:auth.info.email,
                               password:Devise.friendly_token[0,20],
                             )
+          user.skip_confirmation!
+          user.save
         end    
       end
   end
@@ -53,6 +55,8 @@ class User < ActiveRecord::Base
             uid: access_token.uid ,
             password: Devise.friendly_token[0,20],
           )
+          user.skip_confirmation!
+          user.save
         end
       end
   end
@@ -74,6 +78,8 @@ class User < ActiveRecord::Base
           email:auth.uid+"@twitter.com",
           password:Devise.friendly_token[0,20],
         )
+        user.skip_confirmation!
+        user.save
       end
     end
   end
