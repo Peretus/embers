@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env)
 
 module Remory
   class Application < Rails::Application
+    config.action_mailer.default_url_options = {:host => "localhost:3000"}
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,5 +20,14 @@ module Remory
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    ActionMailer::Base.smtp_settings = {
+        :port =>           '587',
+        :address =>        'smtp.mandrillapp.com',
+        :user_name =>      ENV['MANDRILL_USERNAME'],
+        :password =>       ENV['MANDRILL_APIKEY'],
+        :domain =>         'heroku.com',
+        :authentication => :plain
+    }
+    ActionMailer::Base.delivery_method = :smtp
   end
 end
