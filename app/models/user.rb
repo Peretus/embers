@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
           email:auth.uid+"@twitter.com",
           password:Devise.friendly_token[0,20],
         )
-        user.skip_confirmation!
+        user.confirm!
         user.save
       end
     end
