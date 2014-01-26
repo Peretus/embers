@@ -14,15 +14,43 @@
       <div class="line-separator"></div>
 
       <div id="around-buttons">
-        <button id="fb-signin" class="oauth-link"><%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %></button><br />
+       
+        <%= link_to user_omniauth_authorize_path(:facebook) do %>
+          <button id="fb-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-facebook"></i>
+            </div>
+            Sign up with Facebook
+          </button>
+        <% end %>
 
-        <button id="g-signin" class="oauth-link"><%= link_to "Sign up with Google", user_omniauth_authorize_path(:google_oauth2) %></button><br />
+      
+        
+        <%= link_to user_omniauth_authorize_path(:google_oauth2) do %>
+          <button id="g-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-google-plus"></i>
+            </div>
+            Sign up with Google
+          </button>
+        <% end %>
 
-        <button id="tw-signin" class="oauth-link"><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></button>
+
+
+
+        <%= link_to user_omniauth_authorize_path(:twitter) do %>
+          <button id="tw-signin" class="oauth-link">
+            <div class="button-icon">
+              <i class="fa fa-twitter"></i>
+            </div>
+            Sign up with Twitter
+          </button>
+        <% end %>
+
       </div>
     </div>
 
-    <!-- <div id="sign-up-container" class="small-10 med-7 large-8 columns"> -->
+
     <div id="sign-up-container" >
       <h5> Or sign up with email </h5>
       <div class="line-separator-email"></div>
