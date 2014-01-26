@@ -28,9 +28,7 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV["G_1"], ENV["G_2"], { access_type: "offline", approval_prompt: "" }
   
   require 'omniauth-twitter'
-  config.omniauth :twitter ,"0O1fuAhNEqPz1AhaC28NA", "kTpAbhb2OTrmeFkXoovjCjGQbmxQvXhGinm58MqPI"
-  # config.omniauth :twitter ,"0O1fuAhNEqPz1AhaC28NA", "kTpAbhb2OTrmeFkXoovjCjGQbmxQvXhGinm58MqPI"
-  # config.omniauth :twitter ,ENV["T_1"], ENV["T_1"]
+  config.omniauth :twitter, "0O1fuAhNEqPz1AhaC28NA", "kTpAbhb2OTrmeFkXoovjCjGQbmxQvXhGinm58MqPI"
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
