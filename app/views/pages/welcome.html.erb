@@ -10,7 +10,7 @@
     <div class="med-5 large-5 columns">
       <div id="sales-copy-container">
         <h3 id="headline">Burn it into your memory!</h3>
-        <p> Commit anything to long-term memory efficiently. Embe.rs trains you in multiple, mobile-friendly formats and uses spaced repetition algorithms to surface the facts you need to review when you're most likely to forget them. Try it out now!</p>
+        <p> Commit anything to long-term memory efficiently. Embe.rs trains you in multiple, mobile-friendly formats and uses spaced repetition algorithms to surface the facts you need to review when you're most likely to forget them. Try it out now  <i class="fa fa-long-arrow-right"></i>  </p>
       </div>
 
     </div>
@@ -38,6 +38,36 @@ var freeTemplate = '<h2 id="demo-card-header">&nbsp</h2><input id="demo-free-tex
 
 var puzzleTemplate = '<h2 id="demo-card-header">&nbsp</h2><div id="demo-answer-canvas"></div><div id="demo-answer-basket"></div>'
 
+
+// toggle icon on window resize
+
+if($(window).width() > 1024) {     
+        $('#sales-copy-container .fa').removeClass('fa-level-down')
+        $('#sales-copy-container .fa').addClass('fa-long-arrow-right')
+
+      } else {
+          $('#sales-copy-container .fa').removeClass('fa-long-arrow-right')
+        $('#sales-copy-container .fa').addClass('fa-level-down')
+        
+    }
+
+$( window ).resize(
+  function(){
+    if($(window).width() > 1024) {     
+        $('#sales-copy-container .fa').removeClass('fa-level-down')
+        $('#sales-copy-container .fa').addClass('fa-long-arrow-right')
+
+      } else {
+          $('#sales-copy-container .fa').removeClass('fa-long-arrow-right')
+        $('#sales-copy-container .fa').addClass('fa-level-down')
+        
+    }
+
+
+    });
+
+
+
 // These click handlers are for the puzzle format
 $("#demo-card-container").on('click', "#demo-answer-canvas .demo-answer-object",
   function(){
@@ -57,7 +87,7 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
     console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
-      $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
+      $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#96ab33", "color" : "white"});
       $("#onboarding").remove();
       $("#demo-card-container").append("<p id='onboarding'>Great job!</p>")
       setTimeout(function(){
@@ -75,7 +105,7 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
 $("#demo-card-container").on('click', ".demo-mc-correct-answer",
   function(){
     var $this = $(this);
-    $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
+    $this.css({"border": "1px solid #a53918", "background-color": "#d94c21", "color" : "white"})
     setTimeout(function(){
       card_counter = card_counter+ 1;
       showRandomCard();
@@ -88,9 +118,9 @@ $("#demo-card-container").on('click', ".demo-mc-correct-answer",
 $("#demo-card-container").on('click', ".demo-mc-decoy",
   function(){
     var $this = $(this);
-    $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
+    $this.css({"border": "1px solid #a53918", "background-color": "#d94c21", "color" : "white"})
     setTimeout(function(){
-      $(".demo-mc-correct-answer").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
+      $(".demo-mc-correct-answer").css({"border": "1px solid #669900", "background-color": "#96ab33", "color" : "white"})
     }, 900)
     setTimeout(function(){
       card_counter = card_counter+ 1;
@@ -193,9 +223,9 @@ var checkAndPostFreeResponseAnswer = function(){
   console.log("answer: "+answer);
   console.log("response: "+response);
   if(response == answer){
-    $("#demo-free-text-field").css("background-color", "green");
+    $("#demo-free-text-field").css({"background-color": "#96ab33","color":"white" });
   } else {
-    $("#demo-free-text-field").css("background-color", "red");
+    $("#demo-free-text-field").css({"background-color": "#d94c21","color":"white"});
   }
   
   setTimeout(function(){
