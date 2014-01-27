@@ -1,8 +1,12 @@
 
 /*This is the real study mode styling page, not the styling for the welcome page intro.*/
 
+.ui-page-theme-a a:visited, html .ui-bar-a a:visited, html .ui-body-a a:visited, html body .ui-group-theme-a a:visited {
+color: white;
+}
+
 #full-width-background{
-  background-color: #f7f7f6;
+  background-color: #555177;
   height: 800px;
 }
 #card-header{

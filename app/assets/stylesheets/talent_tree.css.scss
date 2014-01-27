@@ -4,13 +4,16 @@
 
 #outer-path-container {
   width: 100%;
-  background-color: lightblue;
+  background-color: #555177;
 }
 
 #inner-path-container {
   width: 75%;
-  background-color: lightyellow;
+  background-color: #e3e2ea;
   text-align: center;
+  border: 1px solid #cdcdcb;
+  border-radius: 5px;
+  color: gray;
 }
 
 .deck-object {

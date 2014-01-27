@@ -47,7 +47,7 @@
 
   .line-separator-email{
     height:1px;
-    width: 90%;
+    width: 100%;
     background: lightgray;
     border-bottom:1px solid lightgray;
     margin-bottom: 20px;
@@ -110,8 +110,6 @@ h5{
 
 .oauth-link{
   padding: 15px;
- /* width: 80%;*/
-  font-size: .80em;
   color: white;
   text-align: left;
   border-radius: 3px;
@@ -119,7 +117,7 @@ h5{
 }
 
 .oauth-link a{
-  font-size: 1em;
+  font-size: .9em;
   color: white;
   font-family: "Open Sans";
   font-weight: 300;
@@ -127,25 +125,28 @@ h5{
 }
 
 #fb-signin{
-  background-color: #3f57a5;
+  background-color: #43538f;
+  border: 1px solid #2b334f;
 }
 #fb-signin:hover{
-  background-color: #2c3b8f;
+  background-color: #2b334f;
 }
 
 #g-signin{
-  background-color: #da4c37;
+  background-color: #cc5b2f;
+  border: 1px solid #ac4922;
 }
 #g-signin:hover{
-  background-color: #bf3c25;
+  background-color: #ac4922;
 }
 
 
 #tw-signin{
-  background-color: #4fb7f1;  
+  background-color: #59afbf;
+  border: 1px solid #3a8a98;  
 }
 #tw-signin:hover{
-  background-color: #3793d4;
+  background-color: #3a8a98;
 }
 
 #modal-grandparent{
@@ -154,16 +155,17 @@ h5{
 
 
 #sign-up-button{
-  background-color: gray;
+  background-color: #afaeae;
   border-radius: 3px;
   font-size: .8em;
   color: white;
   font-family: "Open Sans";
   padding: 10px 20px;
+  border: 1px solid gray; 
 }
 
 #sign-up-button:hover{
-  background-color: darkgray;
+  background-color: gray;
 }
 
 #sign-up-button a{
