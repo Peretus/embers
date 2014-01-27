@@ -26,6 +26,23 @@
         <ul class="right">
           <% if user_signed_in?%>
             <%= content_tag(:li, link_to("Sign out", destroy_user_session_path, method: "delete"))%>
+            <div id="last-question-transition" class="reveal-modal" data-reveal>
+              <h2>Great job!</h2>
+               <p>There are no more due cards at this time.  Why not add some more cards?</p>
+               <%= link_to '<i id= "reshow-due-cards" class="fa fa-refresh"></i>'.html_safe, user_due_facts_path(user_id: current_user.id), "data-transition" => "pop" %>
+               <%= link_to '<i id= "reshow-due-cards" class="fa fa-plus-circle"></i>'.html_safe, user_path_decks_path(user_id: current_user.id, path_id: current_user.enrollments.first.path.id), "data-transition" => "pop" %>
+
+              <a class="close-reveal-modal">&#215;</a>
+            </div>
+
+            <div id="last-question-deck-transition" class="reveal-modal" data-reveal>
+              <h2>Great job!</h2>
+               <p>These cards have been added to your library.</p>
+               <%= link_to '<i id= "reshow-deck-cards" class="fa fa-refresh"></i>'.html_safe, user_due_facts_path(user_id: current_user.id), "data-transition" => "pop" %>
+               <%= link_to '<i id= "reshow-due-cards" class="fa fa-plus-circle"></i>'.html_safe, user_path_decks_path(user_id: current_user.id, path_id: current_user.enrollments.first.path.id), "data-transition" => "pop" %>
+
+              <a class="close-reveal-modal">&#215;</a>
+            </div>
           <% else %>
             <li><a href="#" data-reveal-id="sign-up-form">Sign up</a></li>
             <li><a href="#" data-reveal-id="sign-in-form">Sign in</a></li>
@@ -34,20 +51,22 @@
 
       </section>
     </nav>
-    <div id="sign-up-form" class="reveal-modal" data-reveal>
-      <h2></h2>
-       <%= render "devise/registrations/new" %>
-      <a class="close-reveal-modal">&#215;</a>
-    </div>
-    <div id="sign-in-form" class="reveal-modal" data-reveal>
-      <!-- <h2>Awesome. I have it.</h2> -->
-       <%= render "devise/sessions/new" %>
-      <a class="close-reveal-modal">&#215;</a>
-    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
+    <div id="sign-up-form" class="reveal-modal" data-reveal>
+      <h2></h2>
+       <%= render "devise/registrations/new" %>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+    
+
+    <div id="sign-in-form" class="reveal-modal" data-reveal>
+      <!-- <h2>Awesome. I have it.</h2> -->
+       <%= render "devise/sessions/new" %>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
   </body>
 </html>
