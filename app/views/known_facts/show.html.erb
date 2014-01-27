@@ -63,7 +63,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
        console.log("Card counter before puzzle ajax: "+card_counter)
       $.ajax({
           type: "POST",
-          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100},
+          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100, authenticity_token: '<%= form_authenticity_token %>'},
           dataType: "json",
           url: "<%= user_known_facts_update_path %>"
         });
@@ -77,7 +77,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
       console.log("Card counter before puzzle ajax: "+card_counter)
       $.ajax({
           type: "POST",
-          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+          data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0, authenticity_token: '<%= form_authenticity_token %>'},
           dataType: "json",
           url: "<%= user_known_facts_update_path %>"
         });
@@ -98,7 +98,7 @@ $("#card-container").on('click', ".mc-correct-answer",
     console.log("Card counter before multiple choice correct ajax: "+card_counter);
     $.ajax({
         type: "POST",
-        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100},
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100, authenticity_token: '<%= form_authenticity_token %>'},
         dataType: "json",
         url: "<%= user_known_facts_update_path %>"
       });
@@ -118,7 +118,7 @@ $("#card-container").on('click', ".mc-decoy",
     console.log("Card counter before mc incorrect ajax: "+card_counter)
     $.ajax({
         type: "POST",
-        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0, authenticity_token: '<%= form_authenticity_token %>'},
         dataType: "json",
         url: "<%= user_known_facts_update_path %>"
       });
@@ -225,7 +225,7 @@ var checkAndPostFreeResponseAnswer = function(){
     console.log("Card counter before free response ajax: "+card_counter)
     $.ajax({
         type: "POST",
-        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100},
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100, authenticity_token: '<%= form_authenticity_token %>'},
         dataType: "json",
         url: "<%= user_known_facts_update_path %>"
       });
@@ -240,7 +240,7 @@ var checkAndPostFreeResponseAnswer = function(){
     console.log("Card counter before free response ajax: "+card_counter)
     $.ajax({
         type: "POST",
-        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0},
+        data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0, authenticity_token: '<%= form_authenticity_token %>'},
         dataType: "json",
         url: "<%= user_known_facts_update_path %>"
       });
