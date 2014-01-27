@@ -299,7 +299,7 @@ function showRandomCard(){
     var index = Math.floor(Math.random()*2);
     cardTypes[index]();
   } else {
-    alert("This was the final question decks_show");
+    $("#last-question-deck-transition").foundation('reveal', 'open');
   }
 };
 
