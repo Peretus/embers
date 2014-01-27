@@ -27,8 +27,8 @@
           <% if user_signed_in?%>
             <%= content_tag(:li, link_to("Sign out", destroy_user_session_path, method: "delete"))%>
           <% else %>
-            <li><a href="#" data-reveal-id="sign-up-form">Sign up</a></li>
-            <li><a href="#" data-reveal-id="sign-in-form">Sign in</a></li>
+            <li><a class="nav-link" href="#" data-reveal-id="sign-up-form">Sign up</a></li>
+            <li><a class="nav-link"href="#" data-reveal-id="sign-in-form">Sign in</a></li>
           <%end%>
         </ul>
 
