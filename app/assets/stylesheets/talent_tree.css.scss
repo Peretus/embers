@@ -1,12 +1,18 @@
-/** {
-  border: 1px dashed red;
-}*/
+.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
+color: white !important;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+  text-shadow: none !important;
+}
 
 #outer-path-container {
   width: 100%;
   background-color: #555177;
 }
-
+.path-bg{
+  background-color: #555177;
+}
 #inner-path-container {
   width: 75%;
   background-color: #e3e2ea;
@@ -16,16 +22,24 @@
   color: gray;
 }
 
+div a .false, div a .empty{
+  background-color: darkgray;
+}
+
 .deck-object {
   width: 150px;
   height: 70px;
+  padding: 15px;
   margin: 20px 20px !important;
   display: inline-block;
-  background-color: blue;
-  font-weight: 300;
+  background-color: #d5772e;
+  font-weight: 300 !important;
+  border-radius: 7px;
   color: white;
+  vertical-align: middle;
   
 }
+
 
 .deck-object-lock {
   border-radius: 50%;
