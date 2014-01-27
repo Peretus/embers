@@ -23,7 +23,7 @@
 
 #demo-card-container {
   border: 1px solid lightgray;
-  height: 400px;
+  min-height: 400px;
   background-color: #f7f7f6;
   border-radius: 3px;
 }
@@ -95,7 +95,7 @@
 
 #demo-multiple-choice-basket {
   text-align: center;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   width: 90%;
   clear: both;
 }
