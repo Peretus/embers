@@ -1,5 +1,6 @@
-.ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a {
-color: white !important;
+.ui-page-theme-a a{
+ color: white !important;
+ text-shadow: none !important;
 }
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
@@ -13,9 +14,21 @@ color: white !important;
 .path-bg{
   background-color: #555177;
 }
+
+#due-cards{
+  padding: 20px 40px;
+  margin: 30px 0 30px 0;
+  background-color: #e7b803;
+  text-shadow: none !important;
+  font-weight: 300;
+  border-radius: 35px;
+  display: inline-block;
+  border: 1px solid #c89303;
+}
+
 #inner-path-container {
   width: 75%;
-  background-color: #e3e2ea;
+  background-color: #f1f0f3;
   text-align: center;
   border: 1px solid #3a3c4a;
   border-radius: 5px;
@@ -23,7 +36,9 @@ color: white !important;
 }
 
 div a .false, div a .empty{
-  background-color: darkgray;
+  background-color: #d6d4d8;
+  color: gray;
+  border: 1px solid darkgray;
 }
 
 .deck-object {
@@ -32,11 +47,12 @@ div a .false, div a .empty{
   padding: 15px;
   margin: 20px 20px !important;
   display: inline-block;
-  background-color: #d5772e;
+  background-color: #e77e2d;
   font-weight: 300 !important;
   border-radius: 7px;
   color: white;
   vertical-align: middle;
+  border: 1px solid #973200;
   
 }
 
@@ -45,7 +61,7 @@ div a .false, div a .empty{
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  background-color: lightgreen;
+  background-color: #e7b803;
   margin: 30px;
 
 

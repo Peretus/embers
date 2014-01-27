@@ -18,7 +18,13 @@
 
           <div class="row">
             <%if @user.known_facts && @user.known_facts.count > 0 %>
-                <%= link_to "due cards", user_due_facts_path(user_id: current_user.id), "data-transition" => "pop" %>
+              
+                <%= link_to user_due_facts_path(user_id: current_user.id), "data-transition" => "pop" do %>
+                <div id="due-cards">
+                  Review my due cards
+                </div>
+              <% end %>
+
             <% end %>
           </div>
 
