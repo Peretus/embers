@@ -305,11 +305,37 @@ function showRandomCard(){
 
 var submitFormTimer;
 
+// If the enter key is pressed, stop the time and submit the question immediately.
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        stopTimerAndSubmitAnswer();
+    }
+});
+
+function stopTimerAndSubmitAnswer(){
+  window.clearTimeout(submitFormTimer);
+  if($(".mc-decoy").length >0){
+    // Add mc check answer
+  } else if($("#free-text-field").length > 0){
+    checkAndPostFreeResponseAnswer();
+  }  else if($("#answer-canvas").length > 0){
+    $("#answer-basket").empty()
+
+    $("#answer-canvas").empty().append("<div class='answer-object'>"+sampleFacts[card_counter].definition.join("")+"</div>")
+    notifyLostPoints(15);
+      setTimeout(function(){
+        clearOldCard();
+        showRandomCard();
+      },2000);
+  }
+};
+
 function endAndStartTimer() {
   window.clearTimeout(submitFormTimer);
   //var millisecBeforeRedirect = 10000; 
-  submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
-}
+  submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1800); 
+};
+
 $(document).foundation();
 showRandomCard();
 </script>
