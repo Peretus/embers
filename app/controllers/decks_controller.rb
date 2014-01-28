@@ -16,6 +16,7 @@ class DecksController < ApplicationController
         @user.known_facts.create(:fact_id=> fact.id, :user_id => @user.id, :decaying_mastery_score => 0.0, :times_seen => 0, :last_seen => Time.now) 
       end
       @deck.active = true
+      @deck.save!
     end
     @deck_facts.each do |fact|
       words = fact.split_to_answer_objects

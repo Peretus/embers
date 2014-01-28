@@ -304,10 +304,11 @@ function showRandomCard(){
     cardTypes[index]();
   };
   } else {
-    $("#last-question-transition").foundation('reveal', 'open');
+    
     setTimeout(function(){
       window.location.href = "<%= authenticated_root_path %>";
     }, 3000)
+    $("#last-question-transition").foundation('reveal', 'open');
   }
 };
 
