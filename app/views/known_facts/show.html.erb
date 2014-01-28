@@ -169,10 +169,12 @@ var mc = function(){
   $("#card-container").append(mcTemplate);
   $("#card-header").text(sampleFacts[card_counter].term);
   var decoyItemHtml = [];
+
+  //This is what the line below used to be: for (var i = 0; i < sampleFacts.length; i++) {
   for (var i = 0; i < sampleFacts.length; i++) {
     // $("#multiple-choice-basket").append('<li class="mc-decoy">'+sampleFacts[i].definition+'</li>')
     var decoyString = sampleFacts[i].definition.join("")
-      normalizeMultipleChoice(decoyString);
+      // normalizeMultipleChoice(decoyString);
       shuffle(decoyItemHtml);
       decoyItemHtml.push('<li class="mc-decoy">'+decoyString+'</li>');
 
@@ -180,12 +182,17 @@ var mc = function(){
   };
   var correctAnswer = '<li class="mc-decoy">'+sampleFacts[card_counter].definition.join("")+'</li>'
   var correctAnswerWithCorrectClass = '<li class="mc-correct-answer">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  var mc_counter = 0;
   for(i in decoyItemHtml ){
     if(decoyItemHtml[i] != correctAnswer){
       console.log(decoyItemHtml[i])
       console.log(correctAnswer)
       if(decoyItemHtml[i].length > 29)
-        $("#multiple-choice-basket").append(decoyItemHtml[i]);
+        // limit the max number of decoys to 5, regardless of the number of the due facts a user has in the library.
+        if(mc_counter < 5) {
+          $("#multiple-choice-basket").append(decoyItemHtml[i]);
+          mc_counter = mc_counter+1;
+        };
     } else {
       $("#multiple-choice-basket").append(correctAnswerWithCorrectClass);
     }
