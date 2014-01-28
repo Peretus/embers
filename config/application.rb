@@ -9,6 +9,12 @@ Bundler.require(:default, Rails.env)
 module Remory
   class Application < Rails::Application
     config.action_mailer.default_url_options = {:host => "localhost:3000"}
+
+    # Add the fonts path
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Precompile additional assets
+    config.assets.precompile += %w( .svg .eot .woff .ttf ) 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

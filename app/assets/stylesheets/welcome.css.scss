@@ -4,37 +4,63 @@
 }
 
 .top-bar-section li a:not(.button) {
-  padding: 0 15px;
+  padding: 0 20px;
   line-height: 45px;
   background: #30323b;
   font-weight: 300;
+  font-size: .95em;
+  letter-spacing: 0.04em;
 }
 
 #logo-text{
   font-size: 1.5em;
   font-family: 'Offside', sans-serif;
 }
+#sales-copy-container .fa{
+  font-size: 1.2em;
+  margin: 0 0 0 5px;
+}
 
 .name img{
-  margin: 0 2px 0 1px;
+  margin: 3px 2px 0 1px;
 }
 
 #headline{
   font-size: 2.1em;
-  line-height: 1.2em;
+  line-height: 1.1em;
   font-weight: 700;
   color: #454955;
-  font-family: "Inika",sans-serif;
+  font-family: "Coustard", serif;
   letter-spacing: 0.02em;
+  margin-bottom: 10px;
 }
 
-#sales-copy-container{
-  padding: 30px 10px 0 0;
+#demo-answer-canvas{
+  background-color: #e9deea;
+  border: 1px solid #b5b2c8;
+}
+
+#demo-answer-canvas > div{
+  border: 1px solid #b5b2c8;
+}
+
+
+@media (min-width: 1025px){
+  #sales-copy-container{
+    padding: 30px 10px 0 0;
+  }
+  #sales-copy-container{
+    margin-top: 50px;
+  }
+}
+@media (max-width: 1024px){
+  #sales-copy-container{
+    padding: 20px 10px 0 0;
+  }
 }
 
 .notice, .alert{
-  background-color: #f7f7f6;
-  margin: 0;
+  display: none;
 }
 
 #demo-full-width-background{
@@ -42,13 +68,13 @@
   height: 1400px;
 }
 
-#sales-copy-container{
-  margin-top: 50px;
-}
+
 #sales-copy-container p{
   font-size: 1.1em;
   color: white;
   font-weight: 300;
   letter-spacing: .05em;
 }
+
+
 
