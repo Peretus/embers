@@ -2,6 +2,7 @@ class DecksController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @decks = @user.paths.first.decks.all
+    @path = @user.paths.first
   end
 
   def show
