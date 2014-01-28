@@ -13,7 +13,7 @@
   font-size: 1.8em;
   margin-top: 40px;
 }
-.ui-page-theme-a a{
+.ui-page-theme-a .right a{
  color: white !important;
  text-shadow: none !important;
 }
@@ -23,11 +23,19 @@
 }
 
 #outer-path-container {
+  margin: 50px 0 300px 0;
   width: 100%;
-  background-color: none;
 }
+
 .path-bg{
-  background-color: #555177;
+  background: #55507b; /* Old browsers */
+  background: -moz-linear-gradient(top, #55507b 1%, #87608d 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#55507b), color-stop(100%,#87608d)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #55507b 1%,#87608d 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #55507b 1%,#87608d 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #55507b 1%,#87608d 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #55507b 1%,#87608d 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#55507b', endColorstr='#87608d',GradientType=0 ); /* IE6-9 */
 }
 
 #due-cards{
@@ -44,7 +52,7 @@
 
 #inner-path-container {
   width: 75%;
-  background-color: #f1f0f3;
+  background-color: #f8f8f8;
   text-align: center;
   border: 1px solid #3a3c4a;
   border-radius: 5px;
@@ -52,13 +60,14 @@
 }
 
 div a .false, div a .empty {
-  background: -moz-linear-gradient(top, #dfdee0 0%, #e9e7eb 41%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdee0), color-stop(41%,#e9e7eb)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* IE10+ */
-  background: linear-gradient(to bottom, #dfdee0 0%,#e9e7eb 41%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdee0', endColorstr='#e9e7eb',GradientType=0 ); /* IE6-9 */
+ background: #e2e1e5; /* Old browsers */
+ background: -moz-linear-gradient(top, #e2e1e5 0%, #f1f0f3 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e2e1e5), color-stop(100%,#f1f0f3)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #e2e1e5 0%,#f1f0f3 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #e2e1e5 0%,#f1f0f3 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #e2e1e5 0%,#f1f0f3 100%); /* IE10+ */
+ background: linear-gradient(to bottom, #e2e1e5 0%,#f1f0f3 100%); /* W3C */
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e1e5', endColorstr='#f1f0f3',GradientType=0 ); /* IE6-9 */
   color: gray;
   -moz-box-shadow:    inset 1px 2px 7px #f4f2f1;
   -webkit-box-shadow: inset 1px 2px 7px #f4f2f1;
@@ -67,12 +76,15 @@ div a .false, div a .empty {
 }
 
 div a .false .deck-icon, div a .empty .deck-icon{
-    color: gray;
+    color: #a9a9a9;
     text-shadow: none;
 }
 
 div a .false .fa, div a .empty .fa{
-  color: gray;
+  color: #b6b6b6;
+  float: right;
+  font-size: 1.1em;
+  margin: 10px 10px 0 0;
   }
 
 i.fa.fa-lock{
@@ -101,7 +113,7 @@ i.fa.fa-lock{
 
 .deck-icon{
   font-size: 2.3em;
-  padding: 10px;
+  padding: 10px 0 10px 20px;
   font-family: 'Pictonic';
 /*  text-shadow: 1px 1px 6px #ebad12;*/
 }
@@ -118,3 +130,9 @@ i.fa.fa-lock{
   height: 90px;
   margin: 30px 0 10px 0;
 }
+
+.illustration{
+  width: 100%;
+  position:fixed;
+  bottom:0px;
+ }

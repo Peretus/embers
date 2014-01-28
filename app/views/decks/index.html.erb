@@ -5,15 +5,10 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 <div class="path-bg">
-  <div class="row path-bg">
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
-    
-    <!-- Start of outer path container -->
-    <div id="outer-path-container" class="small-10 med-10 large-10 columns">
-      <div class="row">
-       <!--  <div class="small-1 med-1 large-1 columns"></div> -->
+  <div class="row">
 
-        
+    <div id="outer-path-container">
+   
         <!-- Inner container for decks -->
         <div id="inner-path-container" class="small-12 med-12 large-12 columns small-centered">
 
@@ -76,11 +71,9 @@
             <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"></div>
           </div>
         </div>
-        <!-- <div class="small-1 med-1 large-1 columns">&nbsp;</div> -->
-      </div>
     </div>
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
+      <div class="illustration"></div>
 </div>
 
 
@@ -95,5 +88,26 @@ $(document).ready(
         $('#level-2-deck-4 span').addClass('icon-prog-rails')
 
       });
+
+// toggle illustration on window resize
+
+if($(window).width() > 1300) {     
+        $('.illustration').prepend('<%= image_tag("campingillust_extended.png")%>');
+
+      } else {
+        $('.illustration').prepend('<%= image_tag("campingillustration.png")%>');
+    }
+
+$( window ).resize(
+  function(){
+    if($(window).width() > 1300) {  
+        $('.illustration').empty();
+        $('.illustration').prepend('<%= image_tag("campingillust_extended.png")%>');
+
+      } else {
+        $('.illustration').empty();
+        $('.illustration').prepend('<%= image_tag("campingillustration.png")%>');
+    }
+    });
 
     </script>
