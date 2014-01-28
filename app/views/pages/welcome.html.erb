@@ -279,6 +279,31 @@ showRandomCard();
 
 var submitFormTimer;
 
+// If the enter key is pressed, stop the time and submit the question immediately.
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        stopTimerAndSubmitAnswer();
+    }
+});
+
+function stopTimerAndSubmitAnswer(){
+  window.clearTimeout(submitFormTimer);
+  if($(".demo-mc-decoy").length >0){
+    // Add mc check answer
+  } else if($("#demo-free-text-field").length > 0){
+    checkAndPostFreeResponseAnswer();
+  }  else if($("#demo-answer-canvas").length > 0){
+    $("#demo-answer-basket").empty()
+
+    $("#demo-answer-canvas").empty().append("<div class='demo-answer-object'>"+sampleFacts[card_counter-1].definition.join("")+"</div>")
+    setTimeout(function(){
+        clearOldCard();
+        showRandomCard();
+      },3500);
+  }
+};
+
+
 function endAndStartTimer() {
   window.clearTimeout(submitFormTimer);
   //var millisecBeforeRedirect = 10000; 
