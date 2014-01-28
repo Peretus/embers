@@ -7,7 +7,12 @@
          url('<%= asset_path "pictonic.svg#svgPictonic" %>') format('svg');
 }
 
-
+#path-name{
+  color: #8c86ac;
+  font-weight: 300;
+  font-size: 1.8em;
+  margin-top: 40px;
+}
 .ui-page-theme-a a{
  color: white !important;
  text-shadow: none !important;
@@ -34,6 +39,7 @@
   border-radius: 35px;
   display: inline-block;
   border: 1px solid #c89303;
+  color: #a55d00;
 }
 
 #inner-path-container {
@@ -45,26 +51,47 @@
   color: gray;
 }
 
-div a .false, div a .empty{
-  background-color: #d6d4d8;
+div a .false, div a .empty {
+  background: -moz-linear-gradient(top, #dfdee0 0%, #e9e7eb 41%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dfdee0), color-stop(41%,#e9e7eb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #dfdee0 0%,#e9e7eb 41%); /* IE10+ */
+  background: linear-gradient(to bottom, #dfdee0 0%,#e9e7eb 41%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdee0', endColorstr='#e9e7eb',GradientType=0 ); /* IE6-9 */
   color: gray;
-  border: 1px solid darkgray;
+  -moz-box-shadow:    inset 1px 2px 7px #f4f2f1;
+  -webkit-box-shadow: inset 1px 2px 7px #f4f2f1;
+  box-shadow:         inset 1px 2px 7px #f4f2f1;
+  border: 2px solid #d6d4d8;
+}
+
+div a .false .deck-icon, div a .empty .deck-icon{
+    color: gray;
+    text-shadow: none;
+}
+
+div a .false .fa, div a .empty .fa{
+  color: gray;
+  }
+
+i.fa.fa-lock{
+  color: #d5772e;
 }
 
 .deck-object {
   width: 235px;
   height: 110px;
-  padding-top: 10px;
+  padding-top: 15px;
   margin: 20px 15px !important;
   font-size: 1em;
   display: inline-block;
-  background-color: #e77e2d;
   font-weight: 300 !important;
   border-radius: 7px;
-  color: white;
+/*  color: white;*/
   vertical-align: middle;
-  border: 1px solid #973200;
-  
+  border: 1px solid #d6d4d8;
+  background-color: #d5772e;
 }
 
 .deck-icon.icon-github-01{
@@ -75,18 +102,19 @@ div a .false, div a .empty{
 .deck-icon{
   font-size: 2.3em;
   padding: 10px;
-  color:7;
   font-family: 'Pictonic';
-  
+/*  text-shadow: 1px 1px 6px #ebad12;*/
 }
 
+.deck-icon .fa-icon{
+ /* color: rgba(0,0,0,1);*/
+  display: none;
+  background-color: #d5772e;
+}
 
 .deck-object-lock {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background-color: #e7b803;
-  margin: 30px;
-
-
+  width: 90px;
+  height: 90px;
+  margin: 30px 0 10px 0;
 }
