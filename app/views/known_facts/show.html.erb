@@ -173,15 +173,15 @@ var mc = function(){
   //This is what the line below used to be: for (var i = 0; i < sampleFacts.length; i++) {
   for (var i = 0; i < sampleFacts.length; i++) {
     // $("#multiple-choice-basket").append('<li class="mc-decoy">'+sampleFacts[i].definition+'</li>')
-    var decoyString = sampleFacts[i].definition.join("")
+    var decoyString = sampleFacts[i].definition.join(" ")
       // normalizeMultipleChoice(decoyString);
       shuffle(decoyItemHtml);
       decoyItemHtml.push('<li class="mc-decoy">'+decoyString+'</li>');
 
       // decoyItemHtml.push(sampleFacts[i]);
   };
-  var correctAnswer = '<li class="mc-decoy">'+sampleFacts[card_counter].definition.join("")+'</li>'
-  var correctAnswerWithCorrectClass = '<li class="mc-correct-answer">'+sampleFacts[card_counter].definition.join("")+'</li>'
+  var correctAnswer = '<li class="mc-decoy">'+sampleFacts[card_counter].definition.join(" ")+'</li>'
+  var correctAnswerWithCorrectClass = '<li class="mc-correct-answer">'+sampleFacts[card_counter].definition.join(" ")+'</li>'
   var mc_counter = 0;
   for(i in decoyItemHtml ){
     if(decoyItemHtml[i] != correctAnswer){
@@ -227,7 +227,7 @@ var checkAndPostFreeResponseAnswer = function(){
   var answer = (sampleFacts[card_counter].definition.join("").replace('"', "'"));
   console.log("answer: "+answer);
   console.log("response: "+response);
-  if(response === answer){
+  if(response === answer || response.replace(/ /g,"") === answer){
     $("#free-text-field").css("background-color", "green");
     notifyPlusPoints(50);
     console.log("Card counter before free response ajax: "+card_counter)
