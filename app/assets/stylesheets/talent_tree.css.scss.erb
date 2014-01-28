@@ -1,3 +1,13 @@
+
+@font-face {
+    font-family: 'Pictonic';
+    src: url('<%= asset_path "pictonic.eot?#iefix" %>') format('embedded-opentype'), 
+         url('<%= asset_path "pictonic.woff" %>') format('woff'), 
+         url('<%= asset_path "pictonic.ttf" %>')  format('truetype'),
+         url('<%= asset_path "pictonic.svg#svgPictonic" %>') format('svg');
+}
+
+
 .ui-page-theme-a a{
  color: white !important;
  text-shadow: none !important;
@@ -9,7 +19,7 @@
 
 #outer-path-container {
   width: 100%;
-  background-color: #555177;
+  background-color: none;
 }
 .path-bg{
   background-color: #555177;
@@ -42,10 +52,11 @@ div a .false, div a .empty{
 }
 
 .deck-object {
-  width: 150px;
-  height: 70px;
-  padding: 15px;
-  margin: 20px 20px !important;
+  width: 235px;
+  height: 110px;
+  padding-top: 10px;
+  margin: 20px 15px !important;
+  font-size: 1em;
   display: inline-block;
   background-color: #e77e2d;
   font-weight: 300 !important;
@@ -53,6 +64,19 @@ div a .false, div a .empty{
   color: white;
   vertical-align: middle;
   border: 1px solid #973200;
+  
+}
+
+.deck-icon.icon-github-01{
+  font-size: 3.2em;
+  
+}
+
+.deck-icon{
+  font-size: 2.3em;
+  padding: 10px;
+  color:7;
+  font-family: 'Pictonic';
   
 }
 

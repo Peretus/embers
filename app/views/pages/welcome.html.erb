@@ -87,7 +87,7 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
     console.log(checkPuzzleAnswer(attemptArray));
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
-      $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#96ab33", "color" : "white"});
+      $("#demo-answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#9DC658", "color" : "white"});
       $("#onboarding").remove();
       $("#demo-card-container").append("<p id='onboarding'>Great job!</p>")
       setTimeout(function(){
@@ -105,7 +105,7 @@ $("#demo-card-container").on('click', "#demo-answer-basket .demo-answer-object",
 $("#demo-card-container").on('click', ".demo-mc-correct-answer",
   function(){
     var $this = $(this);
-    $this.css({"border": "1px solid #a53918", "background-color": "#d94c21", "color" : "white"})
+    $this.css({"border": "1px solid #669900", "background-color": "#9DC658", "color" : "white"})
     setTimeout(function(){
       card_counter = card_counter+ 1;
       showRandomCard();
@@ -120,7 +120,7 @@ $("#demo-card-container").on('click', ".demo-mc-decoy",
     var $this = $(this);
     $this.css({"border": "1px solid #a53918", "background-color": "#d94c21", "color" : "white"})
     setTimeout(function(){
-      $(".demo-mc-correct-answer").css({"border": "1px solid #669900", "background-color": "#96ab33", "color" : "white"})
+      $(".demo-mc-correct-answer").css({"border": "1px solid #669900", "background-color": "#9DC658", "color" : "white"})
     }, 900)
     setTimeout(function(){
       card_counter = card_counter+ 1;
@@ -223,7 +223,7 @@ var checkAndPostFreeResponseAnswer = function(){
   console.log("answer: "+answer);
   console.log("response: "+response);
   if(response == answer){
-    $("#demo-free-text-field").css({"background-color": "#96ab33","color":"white" });
+    $("#demo-free-text-field").css({"background-color": "#9DC658","color":"white" });
   } else {
     $("#demo-free-text-field").css({"background-color": "#d94c21","color":"white"});
   }

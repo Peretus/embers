@@ -4,10 +4,12 @@
 }
 
 .top-bar-section li a:not(.button) {
-  padding: 0 15px;
+  padding: 0 20px;
   line-height: 45px;
   background: #30323b;
   font-weight: 300;
+  font-size: .95em;
+  letter-spacing: 0.04em;
 }
 
 #logo-text{
@@ -33,6 +35,14 @@
   margin-bottom: 10px;
 }
 
+#demo-answer-canvas{
+  background-color: #e9deea;
+  border: 1px solid #b5b2c8;
+}
+
+#demo-answer-canvas > div{
+  border: 1px solid #b5b2c8;
+}
 
 
 @media (min-width: 1025px){
@@ -50,8 +60,7 @@
 }
 
 .notice, .alert{
-  background-color: #f7f7f6;
-  margin: 0;
+  display: none;
 }
 
 #demo-full-width-background{
