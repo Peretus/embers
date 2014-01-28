@@ -8,7 +8,6 @@
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
 </div>
-<div id='mobile-canary'></div>
 
 
 <% content_for :javascript do %>
@@ -23,9 +22,10 @@
 var attemptArray = [];
 var sampleFacts = <%=raw @facts %>;
 var card_counter = 0;
-var mcTemplate = '<h2 id="card-header">&nbsp</h2></div><div id="multiple-choice-basket"><ul></ul></div>'
+var mcTemplate = '<h2 id="card-header">&nbsp</h2><div id="multiple-choice-basket"><ul></ul></div>'
 
-var freeTemplate = '<h2 id="card-header">&nbsp</h2><input id="free-text-field" autofocus></input>'
+// var freeTemplate = '<h2 id="card-header">&nbsp</h2><input id="free-text-field" autofocus></input>'
+var freeTemplate = '<h2 id="card-header">&nbsp</h2><div class="row"><div class="small-4 med-4 large-4 columns">&nbsp;</div><div id="card-container" class="small-4 med-4 large-4 columns"><input id="free-text-field" autofocus></input></div><div class="small-4 med-4 large-4 columns">&nbsp;</div></div>'
 
 var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></div><div id="answer-basket"></div>'
 

@@ -6,11 +6,10 @@
   <div id="score-alert"></div>
   <div class="row">
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
-    <div id="card-container" class="small-10 med-10 large-10columns"></div>
+    <div id="card-container" class="small-10 med-10 large-10 columns"></div>
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
 </div>
-<div id='mobile-canary'></div>
 
 
 <% content_for :javascript do %>
@@ -25,7 +24,7 @@ $.ajaxSetup({
 var attemptArray = [];
 var sampleFacts = <%=raw @facts %>;
 var card_counter = 0;
-var mcTemplate = '<h2 id="card-header">&nbsp</h2></div><div id="multiple-choice-basket"><ul></ul></div>'
+var mcTemplate = '<h2 id="card-header">&nbsp</h2><div id="multiple-choice-basket"><ul></ul></div>'
 
 var freeTemplate = '<h2 id="card-header">&nbsp</h2><input id="free-text-field" autofocus></input>'
 
