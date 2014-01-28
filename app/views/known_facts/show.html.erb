@@ -305,6 +305,9 @@ function showRandomCard(){
   };
   } else {
     $("#last-question-transition").foundation('reveal', 'open');
+    setTimeout(function(){
+      window.location.href = "<%= authenticated_root_path %>";
+    }, 3000)
   }
 };
 
@@ -341,8 +344,8 @@ function endAndStartTimer() {
   submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
 }
 
-showRandomCard();
 $(document).foundation();
+showRandomCard();
 </script>
 
 <% end %>
