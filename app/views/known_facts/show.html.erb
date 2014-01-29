@@ -3,18 +3,20 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 
 <div id="full-width-background">
-  <div id="score-alert"></div>
+  <div class="row">
+    <div class="small-1 med-1 large-1 columns"><%= link_to "<i id='exit-link' class='fa fa-times'>&nbsp;</i>".html_safe, authenticated_root_path %></div>
+    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
+    <div class="small-8 med-8 large-8 columns">&nbsp;</div>
+    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
+    <div id="score-alert" class="small-1 med-1 large-1 columns">&nbsp;</div>
+  </div>
   <div class="row">
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
     <div id="card-container" class="small-10 med-10 large-10 columns"></div>
     <div class="small-1 med-1 large-1 columns">&nbsp;</div>
   </div>
-  <div class="row">
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
-    <div id="exit-links" class="small-10 med-10 large-10 columns"><h2><%= link_to "Exit Study Mode", authenticated_root_path %></h2></div>
-    <div class="small-1 med-1 large-1 columns">&nbsp;</div>
-  </div>
 </div>
+
 
 
 <% content_for :javascript do %>
