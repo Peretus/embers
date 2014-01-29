@@ -95,7 +95,7 @@ if($(window).width() > 1300) {
         $('.illustration').prepend('<%= image_tag("campingillust_extended.png")%>');
 
       } else {
-        $('.illustration').prepend('<%= image_tag("campingillustration.png")%>');
+        $('.illustration').prepend('<%= image_tag("campingillust_less.png")%>');
     }
 
 $( window ).resize(
@@ -106,7 +106,7 @@ $( window ).resize(
 
       } else {
         $('.illustration').empty();
-        $('.illustration').prepend('<%= image_tag("campingillustration.png")%>');
+        $('.illustration').prepend('<%= image_tag("campingillust_less.png")%>');
     }
     });
 
