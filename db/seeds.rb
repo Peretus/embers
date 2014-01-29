@@ -170,11 +170,11 @@ Fact.create!([
 ])
 
 Fact.create!([
-  {term: "Return the first 5 elemnents from Array", definition: "Array.take(5)", deck_id: 5}
+  {term: "Return the first 5 elements from Array", definition: "Array.take(5)", deck_id: 5}
 ])
 
 Fact.create!([
-  {term: "Return a two-dimensional array of the elemnents in Array1 and Array2, grouped by index.", definition: "Array1.zip(Array2)", deck_id: 5}
+  {term: "Return a two-dimensional array of the elements in Array1 and Array2, grouped by index.", definition: "Array1.zip(Array2)", deck_id: 5}
 ])
 
 Fact.create!([
