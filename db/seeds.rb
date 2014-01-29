@@ -15,16 +15,13 @@ Fact.create!([
   {term: "Find the length of an array called 'colors'", definition: "colors.length", deck_id: 1}
 ])
 Fact.create!([
-  {term: "What is the index of the last element in an array?", definition: "-1", deck_id: 1}
-])
-Fact.create!([
   {term: "Add 'green' to the end of the 'colors' array", definition: "colors.push('blue')", deck_id: 1}
 ])
 Fact.create!([
   {term: "Remove the last element from the 'colors' array and return it", definition: "colors.pop", deck_id: 1}
 ])
 Fact.create!([
-  {term: "Remove the first element from the 'colors' array and return it (last question!)", definition: "colors.shift", deck_id: 1}
+  {term: "Remove the first element from the 'colors' array and return it", definition: "colors.shift", deck_id: 1}
 ])
 
 Deck.create!([
@@ -32,31 +29,31 @@ Deck.create!([
 ])
 
 Fact.create!([
-  {term: "Return the word 'BLUE' in lower case.", definition: "'BLUE'.downcase", deck_id: 2}
+  {term: "Return the word 'BLUE' in lower case", definition: "'BLUE'.downcase", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Return boolean whether 'string' is empty.", definition: "'string'.empty?", deck_id: 2}
+  {term: "Return boolean whether 'string' is empty", definition: "'string'.empty?", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Return boolean whether 'string' ends with '?'.", definition: "'string'.end_with?('?')", deck_id: 2}
+  {term: "Return boolean whether 'string' ends with '?'", definition: "'string'.end_with?('?')", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Return boolean whether 'string' contains 'ing'.", definition: "'string'.include?('ing')", deck_id: 2}
+  {term: "Return boolean whether 'string' contains 'ing'", definition: "'string'.include?('ing')", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Return the index of the letter 'i' in 'string'.", definition: "'string'.index('i')", deck_id: 2}
+  {term: "Return the index of the letter 'i' in 'string'", definition: "'string'.index('i')", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Prepend the word 'blue' to the letter 's'.", definition: "'s'.prepend('blue')", deck_id: 2}
+  {term: "Prepend the word 'blue' to the letter 's'", definition: "'s'.prepend('blue')", deck_id: 2}
 ])
 
 Fact.create!([
-  {term: "Return the word 'blue' in reverse order.", definition: "'blue'.reverse", deck_id: 2}
+  {term: "Return the word 'blue' in reverse order", definition: "'blue'.reverse", deck_id: 2}
 ])
 
 Fact.create!([
@@ -64,7 +61,7 @@ Fact.create!([
 ])
 
 Fact.create!([
-  {term: "Turn 'string' into 'STRING' without using 'to_uppercase'.", definition: "'string'.swapcase", deck_id: 2}
+  {term: "Turn 'string' into 'STRING' without using 'to_uppercase'", definition: "'string'.swapcase", deck_id: 2}
 ])
 
 Deck.create!([
@@ -72,31 +69,31 @@ Deck.create!([
 ])
 
 Fact.create!([
-  {term: "Return boolean whether N is an even number.", definition: "N.even?", deck_id: 3}
+  {term: "Return boolean whether N is an even number", definition: "N.even?", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return the absolute value of N.", definition: "N.abs", deck_id: 3}
+  {term: "Return the absolute value of N", definition: "N.abs", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return boolean whether N is an odd number.", definition: "N.odd?", deck_id: 3}
+  {term: "Return boolean whether N is an odd number", definition: "N.odd?", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return number equal to N+1.", definition: "N.next", deck_id: 3}
+  {term: "Return number equal to N+1", definition: "N.next", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return number equal to N-1.", definition: "N.pred", deck_id: 3}
+  {term: "Return number equal to N-1", definition: "N.pred", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return N rounded up to the next highest whole number.", definition: "N.ceil", deck_id: 3}
+  {term: "Return N rounded up to the next highest whole number", definition: "N.ceil", deck_id: 3}
 ])
 
 Fact.create!([
-  {term: "Return N rounded down to the closest whole number.", definition: "N.floor", deck_id: 3}
+  {term: "Return N rounded down to the closest whole number", definition: "N.floor", deck_id: 3}
 ])
 
 
@@ -105,15 +102,15 @@ Deck.create!([
 ])
 
 Fact.create!([
-  {term: "Create an empty hash called fruit.", definition: "fruit = {}", deck_id: 4}
+  {term: "Create an empty hash called fruit", definition: "fruit = {}", deck_id: 4}
 ])
 
 Fact.create!([
-  {term: "Delete value 'a' from Hash, and return the value of 'a'.", definition: "Hash.delete('a')", deck_id: 4}
+  {term: "Delete value 'a' from Hash, and return the value of 'a'", definition: "Hash.delete('a')", deck_id: 4}
 ])
 
 Fact.create!([
-  {term: "Return a new array that is a one-dimensional flattening of Hash.", definition: "Hash.flatten", deck_id: 4}
+  {term: "Return a new array that is a one-dimensional flattening of Hash", definition: "Hash.flatten", deck_id: 4}
 ])
 
 Fact.create!([

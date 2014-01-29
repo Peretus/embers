@@ -80,15 +80,13 @@
 <script type="text/javascript">
 $(document).ready(
   function(){
-     
-        $('#level-1-deck-1 span').addClass('icon-prog-ruby')
-        $('#level-2-deck-2 span').append('<i class="fa big-deck-icon fa-quote-left"></i>')
-        $('#level-2-deck-3 span').append('<i class="fa big-deck-icon fa-sort-numeric-asc"></i>')
-        $('#level-2-deck-4 span').append('<i class="fa big-deck-icon fa-th-list"></i>')
-        $('#level-3-deck-5 span').addClass('icon-github-01')
-        $('#level-3-deck-6 span').addClass('icon-prog-rails')
-        $('#level-3-deck-7 span').addClass('icon-prog-bash02')
-
+        $('.deck-object:contains("Array") span').addClass('icon-prog-ruby')
+        $('.deck-object:contains("Strings") span').append('<i class="fa big-deck-icon fa-quote-left"></i>')
+        $('.deck-object:contains("Numbers") span').append('<i class="fa big-deck-icon fa-sort-numeric-asc"></i>')
+        $('.deck-object:contains("Hashes") span').append('<i class="fa big-deck-icon fa-th-list"></i>')
+        $('.deck-object:contains("Git") span').addClass('icon-github-01')
+        $('.deck-object:contains("Rails") span').addClass('icon-prog-rails')
+        $('.deck-object:contains("Enumerable") span').addClass('icon-prog-bash02')
       });
 
 // toggle illustration on window resize
