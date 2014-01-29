@@ -25,7 +25,7 @@ $.ajaxSetup({
     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
   }
 });
- 
+var validating = false;
 var attemptArray = [];
 var sampleFacts = <%=raw @facts %>;
 var card_counter = 0;
@@ -38,6 +38,9 @@ var puzzleTemplate = '<h2 id="card-header">&nbsp</h2><div id="answer-canvas"></d
 // These click handlers are for the puzzle format
 $("#card-container").on('click', "#answer-canvas .answer-object",
   function(){
+    if(validating){
+      return false;
+    };
     var $this = $(this);
     $("#answer-basket").append(this);
     var delete_index = attemptArray.indexOf($this.text());
@@ -53,6 +56,9 @@ window.deck = {
 
 $("#card-container").on('click', "#answer-basket .answer-object",
   function(){
+    if(validating){
+      return false;
+    };
     var $this = $(this);
     $("#answer-canvas").append(this);
     attemptArray.push($this.text());
@@ -60,6 +66,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     // var answer_correct = check_answer(attemptArray);
     if(checkPuzzleAnswer(attemptArray)) {
       $("#answer-canvas > div").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
+       validating = true;
        notifyPlusPoints(25);
        console.log("Card counter before puzzle ajax: "+card_counter)
       $.ajax({
@@ -76,6 +83,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
       notifyLostPoints(-20);
       $("#answer-canvas > div").css({"border": "1px solid red", "background-color": "red", "color" : "white"})
       console.log("Card counter before puzzle ajax: "+card_counter)
+      validating = true;
       $.ajax({
           type: "POST",
           data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0, authenticity_token: '<%= form_authenticity_token %>'},
@@ -93,10 +101,14 @@ $("#card-container").on('click', "#answer-basket .answer-object",
 // These are handlers for the multiple choice format
 $("#card-container").on('click', ".mc-correct-answer",
   function(){
+    if(validating){
+      return false;
+    };
     var $this = $(this);
     $this.css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"})
     notifyPlusPoints(10);
     console.log("Card counter before multiple choice correct ajax: "+card_counter);
+    validating = true;
     $.ajax({
         type: "POST",
         data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 100, authenticity_token: '<%= form_authenticity_token %>'},
@@ -113,10 +125,14 @@ $("#card-container").on('click', ".mc-correct-answer",
 
 $("#card-container").on('click', ".mc-decoy",
   function(){
+    if(validating){
+      return false;
+    };
     var $this = $(this);
     $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
     notifyLostPoints(-30);
     console.log("Card counter before mc incorrect ajax: "+card_counter)
+    validating = true;
     $.ajax({
         type: "POST",
         data: {fact_id: sampleFacts[card_counter].fact_id, last_mastery_score: 0, authenticity_token: '<%= form_authenticity_token %>'},
@@ -138,6 +154,9 @@ $("#card-container").on('click', ".mc-decoy",
 
 $("#card-container").on('keydown', "#free-text-field", function(){
   console.log("about to set timeout.....");
+  if(validating){
+      return false;
+    };
   endAndStartTimer();
   }
 )
@@ -298,9 +317,11 @@ var clearOldCard = function() {
   $("#card-container").empty();
   attemptArray = [];
   card_counter+=1;
+  validating = false;
 };
 
 function showRandomCard(){
+  validating = false;
   console.log(card_counter)
   checkIfMobile();
   if(card_counter <= sampleFacts.length-1 && isMobile != true) {
@@ -329,11 +350,12 @@ var submitFormTimer;
 // If the enter key is pressed, stop the time and submit the question immediately.
 $(document).keypress(function(e) {
     if(e.which == 13) {
-        stopTimerAndSubmitAnswer();
+    stopTimerAndSubmitAnswer();
     }
 });
 
 function stopTimerAndSubmitAnswer(){
+  validating = true;
   window.clearTimeout(submitFormTimer);
   if($(".mc-decoy").length >0){
     // Add mc check answer
@@ -344,6 +366,7 @@ function stopTimerAndSubmitAnswer(){
 
     $("#answer-canvas").empty().append("<div class='answer-object'>"+sampleFacts[card_counter].definition.join("")+"</div>")
     notifyLostPoints(15);
+    validating = true;
       setTimeout(function(){
         clearOldCard();
         showRandomCard();
@@ -352,6 +375,7 @@ function stopTimerAndSubmitAnswer(){
 };
 
 function endAndStartTimer() {
+  // validating = true;
   window.clearTimeout(submitFormTimer);
   //var millisecBeforeRedirect = 10000; 
   submitFormTimer = window.setTimeout(checkAndPostFreeResponseAnswer,1000); 
