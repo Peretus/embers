@@ -63,7 +63,7 @@
             <% @decks.each do |deck|%>
               <% if(deck.stage < 4 && deck.stage > 3) %>
                 <%= link_to user_path_deck_path(:path_id => deck.path.id, user_id: current_user.id, :id => deck.id), "data-transition" => "pop" do %>
-                  <div id="level-3-deck-<%= @decks.index(deck)%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
+                  <div id="level-3-deck-<%= @decks.index(deck)+1%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
                 <% end %>
               <% end %>
             <% end %>
@@ -72,7 +72,7 @@
         </div>
     </div>
   </div>
-      <div class="illustration"></div>
+      <div class="illustration"><%= image_tag("campingillustration.png")%></div>
 </div>
 
 
@@ -85,31 +85,13 @@ $(document).ready(
         $('#level-2-deck-2 span').append('<i class="fa big-deck-icon fa-quote-left"></i>')
         $('#level-2-deck-3 span').append('<i class="fa big-deck-icon fa-sort-numeric-asc"></i>')
         $('#level-2-deck-4 span').append('<i class="fa big-deck-icon fa-th-list"></i>')
-        $('#level-3-deck-4 span').addClass('icon-github-01')
-        $('#level-3-deck-5 span').addClass('icon-prog-rails')
-        $('#level-3-deck-6 span').addClass('icon-prog-bash02')
+        $('#level-3-deck-5 span').addClass('icon-github-01')
+        $('#level-3-deck-6 span').addClass('icon-prog-rails')
+        $('#level-3-deck-7 span').addClass('icon-prog-bash02')
 
       });
 
 // toggle illustration on window resize
 
-if($(window).width() > 1300) {     
-        $('.illustration').prepend('<%= image_tag("campingillust_extended.png")%>');
-
-      } else {
-        $('.illustration').prepend('<%= image_tag("campingillust_less.png")%>');
-    }
-
-$( window ).resize(
-  function(){
-    if($(window).width() > 1300) {  
-        $('.illustration').empty();
-        $('.illustration').prepend('<%= image_tag("campingillust_extended.png")%>');
-
-      } else {
-        $('.illustration').empty();
-        $('.illustration').prepend('<%= image_tag("campingillust_less.png")%>');
-    }
-    });
 
     </script>
