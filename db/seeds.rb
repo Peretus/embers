@@ -57,7 +57,7 @@ Fact.create!([
 ])
 
 Fact.create!([
-  {term: "Return boolean wheter 'string' starts with 's'", definition: "'string'.start_with?('s')", deck_id: 2}
+  {term: "Return boolean whether 'string' starts with 's'", definition: "'string'.start_with?('s')", deck_id: 2}
 ])
 
 Fact.create!([
