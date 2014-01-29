@@ -96,18 +96,19 @@ color: white;
 }
 
 .gained-points{
-  background-color: green;
+  background-color: #89c43e;
   color: white;
   padding: 30px 0;
+  border: 1px solid #669900
 
 }
 
 
 .lost-points{
-  background-color: red;
+  background-color: #cc5b2f;
   color: white;
   padding: 30px 0;
-
+  border: 1px solid #ac4922;
 }
 
 #exit-links {

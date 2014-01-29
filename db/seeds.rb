@@ -6,7 +6,7 @@ Deck.create!([
 ])
 
 Fact.create!([
-  {term: "Add 'red' to the beginning of an array called 'colors'", definition: "colors.unshift('blue')", deck_id: 1}
+  {term: "Add 'blue' to the beginning of an array called 'colors'", definition: "colors.unshift('blue')", deck_id: 1}
 ])
 Fact.create!([
   {term: "Insert 'blue' to be the third element of the 'colors' array", definition: "colors.insert(2, 'blue')", deck_id: 1}
@@ -15,7 +15,7 @@ Fact.create!([
   {term: "Find the length of an array called 'colors'", definition: "colors.length", deck_id: 1}
 ])
 Fact.create!([
-  {term: "Add 'green' to the end of the 'colors' array", definition: "colors.push('blue')", deck_id: 1}
+  {term: "Add 'blue' to the end of the 'colors' array", definition: "colors.push('blue')", deck_id: 1}
 ])
 Fact.create!([
   {term: "Remove the last element from the 'colors' array and return it", definition: "colors.pop", deck_id: 1}

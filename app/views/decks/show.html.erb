@@ -82,7 +82,7 @@ $("#card-container").on('click', "#answer-basket .answer-object",
     } else if(attemptArray.length === (sampleFacts[card_counter].definition).length){
       validating = true;
       notifyLostPoints(-20);
-      $("#answer-canvas > div").css({"border": "1px solid red", "background-color": "red", "color" : "white"})
+      $("#answer-canvas > div").css({"border": "1px solid #ac4922", "background-color": "#cc5b2f", "color" : "white"})
       console.log("Card counter before puzzle ajax: "+card_counter)
       $.ajax({
           type: "POST",
@@ -129,7 +129,7 @@ $("#card-container").on('click', ".mc-decoy",
       return false;
     };
     var $this = $(this);
-    $this.css({"border": "1px solid red", "background-color": "red", "color" : "white"})
+    $this.css({"border": "1px solid #ac4922", "background-color": "#cc5b2f", "color" : "white"})
     notifyLostPoints(-30);
     console.log("Card counter before mc incorrect ajax: "+card_counter)
     validating = true;
@@ -240,7 +240,7 @@ var checkAndPostFreeResponseAnswer = function(){
   console.log("answer: "+answer);
   console.log("response: "+response);
   if(response === answer){
-    $("#free-text-field").css("background-color", "green");
+    $("#free-text-field").css({"border": "1px solid #669900", "background-color": "#89c43e", "color" : "white"});
     notifyPlusPoints(50);
     console.log("Card counter before free response ajax: "+card_counter)
     $.ajax({
@@ -255,7 +255,8 @@ var checkAndPostFreeResponseAnswer = function(){
     }, 3000)
   } else {
 
-    $("#free-text-field").css("background-color", "red");
+
+    $("#free-text-field").css({"border": "1px solid #ac4922", "background-color": "#cc5b2f", "color" : "white"});
     notifyLostPoints(-5);
     console.log("Card counter before free response ajax: "+card_counter)
     $.ajax({
