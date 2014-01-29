@@ -29,11 +29,13 @@
 
           <!-- level 1 -->
           <div class="row">
+            <% counter = 1 %>
             <% @decks.each do |deck|%>
               <% if(deck.stage < 2) %>
                 <%= link_to user_path_deck_path(:path_id => deck.path.id, user_id: current_user.id, :id => deck.id), "data-transition" => "pop" do %>
-                  <div id="level-1-deck-<%= @decks.index(deck)+1%>" class="small-12 med-12 large-12 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
+                  <div id="level-1-deck-<%= counter%>" class="small-12 med-12 large-12 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
                 <% end %>
+                <% counter = counter + 1 %>
               <% end %>
             <% end %>
             <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"><%= image_tag("unlock.png", :alt => "embe.rs")%></div>
@@ -43,13 +45,15 @@
 
           <!-- level 2 -->
           <div class="row">
+            <% counter = 2 %>
             <div class="small-12 med-12 large-10 columns small-centered">
               <div class= "row">
                 <% @decks.each do |deck|%>
                   <% if(deck.stage < 3 && deck.stage > 2) %>
                     <%= link_to user_path_deck_path(:path_id => deck.path.id, user_id: current_user.id, :id => deck.id), "data-transition" => "pop" do %>
-                    <div id="level-2-deck-<%= @decks.index(deck)+1%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
+                    <div id="level-2-deck-<%= counter%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
                     <% end %>
+                    <% counter = counter + 1 %>
                   <% end %>
                 <% end %>
                 <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"><%= image_tag("unlock.png", :alt => "embe.rs")%></div>
@@ -60,11 +64,13 @@
 
           <!-- level 3 -->
           <div class="row">
+            <% counter = 5 %>
             <% @decks.each do |deck|%>
               <% if(deck.stage < 4 && deck.stage > 3) %>
                 <%= link_to user_path_deck_path(:path_id => deck.path.id, user_id: current_user.id, :id => deck.id), "data-transition" => "pop" do %>
-                  <div id="level-3-deck-<%= @decks.index(deck)+1%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
+                  <div id="level-3-deck-<%= counter%>"class="small-4 med-3 large-2 columns small-centered deck-object <%= @user.known_facts.find_by_id(deck.facts.first.id).nil? && 'empty'%>"><%= deck.title %><br /><span class="deck-icon"></span><i class="fa fa-lock lock"></i></div>
                 <% end %>
+                <% counter = counter + 1 %>
               <% end %>
             <% end %>
             <div class="small-12 med-12 large-12 columns small-centered deck-object-lock"></div>
@@ -80,14 +86,8 @@
 <script type="text/javascript">
 $(document).ready(
   function(){
-     
-        $('#level-1-deck-1 span').addClass('icon-prog-ruby')
-        $('#level-2-deck-2 span').append('<i class="fa big-deck-icon fa-quote-left"></i>')
-        $('#level-2-deck-3 span').append('<i class="fa big-deck-icon fa-sort-numeric-asc"></i>')
-        $('#level-2-deck-4 span').append('<i class="fa big-deck-icon fa-th-list"></i>')
-        $('#level-3-deck-5 span').addClass('icon-github-01')
-        $('#level-3-deck-6 span').addClass('icon-prog-rails')
-        $('#level-3-deck-7 span').addClass('icon-prog-bash02')
+        
+  
 
       });
 
