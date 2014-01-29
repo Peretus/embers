@@ -10,7 +10,7 @@ color: white;
   height: 800px;
 }
 
-#card-header{
+#card-header {
   font-size: 1.5em;
   text-align: center;
   color: gray;
@@ -19,10 +19,17 @@ color: white;
   font-weight: 300;
 }
 
+#exit-link {
+  font-size: 1.5em;
+  color: darkGray;
+  font-weight: 300;
+  margin-top: 40px;
+}
+
 #answer-canvas{
   padding: 10px;
   margin-top: 20px;
-  height: 200px;
+  height: 75px;
   min-width: 200px;
   border: 1px solid gray;
   background-color: #ececec;
@@ -37,7 +44,7 @@ color: white;
   min-width: 20px;
   background-color: #fafafa;
   text-align: center;
-  padding: 10px 15px 10px 15px;
+  padding: 15px 20px 15px 20px;
   border: 1px solid #cdcdcb;
   border-radius: 5px;
   color: gray;
@@ -48,11 +55,11 @@ color: white;
 
 #answer-basket > div {
   float: left;
-  margin: 7px;
+  margin: 10px;
   min-width: 20px;
   background-color: #fafafa;
   text-align: center;
-  padding: 10px 15px 10px 15px;
+  padding: 15px 20px 15px 20px;
   border: 1px solid #cdcdcb;
   border-radius: 5px;
   color: gray;
@@ -91,7 +98,7 @@ color: white;
   height: 80px;
   border-radius: 50%;
   text-align: center;
-
+  margin-top: 20px
 
 }
 
@@ -99,7 +106,8 @@ color: white;
   background-color: #89c43e;
   color: white;
   padding: 30px 0;
-  border: 1px solid #669900
+  border: 1px solid #669900;
+  margin-top: 10px;
 
 }
 
@@ -109,11 +117,9 @@ color: white;
   color: white;
   padding: 30px 0;
   border: 1px solid #ac4922;
+  margin-top: 10px;
 }
 
-#exit-links {
-  text-align: center;
-}
 
 input {
     border: 1px solid #cdcdcb;
@@ -129,7 +135,10 @@ input {
 
 #demo-card-container {
   text-align: center;
+}
 
+#card-container {
+  margin-top: 10px;
 }
 
 /*@media (min-width: 700px){
